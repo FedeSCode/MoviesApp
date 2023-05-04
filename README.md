@@ -1,9 +1,9 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img width=200px height=200px src="/Frontend/src/assets/images/android-chrome-512x512.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Project Title</h3>
+<h3 align="center">MoviesApp</h3>
 
 <div align="center">
 
@@ -30,7 +30,6 @@
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -38,7 +37,6 @@
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
 ### Prerequisites
-
 
 ### Installing
 
@@ -63,10 +61,3 @@ Add additional notes about how to deploy this on a live system.
 
 - [@FedeSCode](https://github.com/FedeSCode) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/FedeSCode/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
