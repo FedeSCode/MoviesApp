@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="/Frontend/src/assets/images/android-chrome-512x512.png" alt="Project logo"></a>
+ <img width=200px height=200px src="Frontend/src/assets/images/android-chrome-512x512.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">MoviesApp</h3>
@@ -23,29 +23,17 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
-- [Usage](#usage)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 
 ## 🧐 About <a name = "about"></a>
-
+Projet de fin de Licence Informatique.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-### Prerequisites
-
-### Installing
-
-
-## 🎈 Usage <a name="usage"></a>
-
-Add notes about how to use the system.
-
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+IN PROGRESS...
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
