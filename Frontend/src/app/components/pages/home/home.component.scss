@@ -1,0 +1,30 @@
+.container{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+
+
+h1{
+  color: var(--color-logo-second);
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.div__txt{
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  min-height: 4rem;
+  color: var(--color-logo-second);
+}
+
+.div__txt h2{
+  font-size: 50px;
+}
+
+

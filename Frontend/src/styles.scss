@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --color-main:#181818;
+  --color-second:#121212;
+  --color-black:#000;
+  --color-txt-nav-hover:#181818;
+  --color-logo-second:#03ced5;
+  --color-txt-nav:#fff;
+  --color-white:#fff;
+  --color-txt:#fff;
+  --color-404-txt:#fff;
+  --color-txt-dark:#2e4247d1;
+  --color-input-bg:#393939;
+  --color-not-heart-not-fav:gray;
+  --color-input-placeholder:#a9a9a9;
+  --color-heart:red;
+  --color-test:red;
+  --color-validator:red;
+
+  /*info-movie*/
+  --color-info-separator:#03ced5;
+  --color-info-cadre:#03ced5;
+  /*register & login*/
+  --color-register-cadre:#03ced5;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--color-main);
+}
+
+html{
+  font-size: 16px;
+}
+
+body{
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}

@@ -1,0 +1,96 @@
+
+header{
+  top :0;
+  width: 100%;
+  position: sticky;
+  z-index: 2;
+  background: var(--color-second);
+  /*border-bottom: 1px solid var(--color-logo-second);*/
+}
+
+.container{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.container .logo__nav{
+  width: 60px;
+  margin: 6px 0 0 40px;
+  padding: 0;
+}
+
+ul{
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  justify-content: center;
+}
+
+ul a{
+  margin-top: 0.5rem;
+  padding: 1rem;
+  display: inline-block;
+}
+
+
+ul a:hover{
+  background-color: var(--color-logo-second);
+  color: var(--color-txt-nav-hover);
+  transition: ease-in-out 500ms;
+  opacity: 0.5;
+  cursor: pointer;
+
+}
+
+a{
+  margin: 0;
+  color: var(--color-txt);
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+.menu-container{
+  position: relative;
+}
+
+.menu-container span{
+  font-size: 1rem;
+}
+
+.menu-container span:hover{
+  transform: translateY(10rem);
+}
+
+.menu{
+  display: none;
+  position:absolute;
+  z-index:1;
+  background-color: var(--color-second);
+  justify-content: center;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.menu-container:hover a, .profil:hover{
+  cursor: pointer;
+  background-color: var(--color-second);
+}
+
+.menu-container:hover .menu{
+  display: block;
+}
+
+.menu a{
+  width: 100%;
+  min-width:8rem;
+}
+
+.menu a:hover , .profil:hover{
+  color: var(--color-black);
+  background-color: var(--color-logo-second);
+  transition: ease-in-out 500ms;
+}
+
+

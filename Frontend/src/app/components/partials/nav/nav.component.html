@@ -1,0 +1,43 @@
+<header>
+  <nav>
+    <div class="container" >
+      <a routerLink="home"> <img class="logo__nav" id="logo__nav" src="./assets/images/android-chrome-192x192.png"
+        alt="Logo">
+      </a>
+
+
+      <app-search class="search"></app-search>
+
+      <ul>
+        <li routerLinkActive="active">
+          <a routerLink="home">Home</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="movie">Movies</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="about">About</a>
+        </li>
+
+
+        <li routerLinkActive="active" *ngIf="!isAuth">
+          <a routerLink="login">Login</a>
+        </li>
+        <li class="menu-container">
+          <a class="profil" routerLink="/dashboard" *ngIf="isAuth">{{user.name}}<span>▼</span></a>
+          <div class="menu">
+            <li routerLinkActive="active" *ngIf="isAdmin">
+              <a routerLink="addMovie">AddMovie</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAuth">
+              <a routerLink="favorits">Favorits</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAuth">
+              <a (click)="logout()">Logout</a>
+            </li>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

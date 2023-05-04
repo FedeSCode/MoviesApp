@@ -1,0 +1,33 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-self:center;
+  height: 100%;
+  width: 100%;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.details{
+  padding: 2rem 4rem 4rem 4rem;
+  border-radius: 5px;
+  background-color: var(--color-second);
+  box-shadow: 2px 2px 4px 0 var(--color-logo-second);
+
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+app-title{
+  text-align: center;
+}
+
+.register{
+  text-align: center;
+  font-size: 2rem;
+  color :var(--color-txt);
+}

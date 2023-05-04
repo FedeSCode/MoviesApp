@@ -1,0 +1,54 @@
+//@import '~bootstrap/dist/css/bootstrap.min.css';
+
+footer{
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  position: bottom;
+  align-items: center;
+  margin-top: 10px;
+  background-color: var(--color-second);
+  bottom: 0;
+  left: 0;
+}
+
+footer {
+  color: var(--color-txt) ;
+}
+.ContactMe ul{
+  display: flex;
+  color: var(--color-txt);
+  list-style:  none;
+  justify-content: center;
+}
+
+.ContactMe ul li{
+  padding: 0 10px;
+}
+
+.Img__fedecode{
+  width: 48px;
+  transform: translateY(1.8px);
+}
+
+#img__social{
+  margin-top: 7px;
+  color: var(--color-white);
+  width: 40px;
+  height: 40px;
+}
+
+
+.fedecode{
+  justify-content: center;
+  text-align: center ;
+  color: var(--color-white);
+}
+
+.code_txt{
+  color: var(--color-white);
+}
+
+.heart{
+  color: var(--color-heart);
+}

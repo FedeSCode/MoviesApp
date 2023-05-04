@@ -1,0 +1,35 @@
+.container{
+  position: relative;
+  width: 100%;
+  padding: 10px;
+
+}
+
+h1{
+  font-size: 100px;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-404-txt);
+  padding: 5px;
+  margin: 0;
+}
+
+.img_error{
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+img{
+  margin-top: -135px;
+  margin-right: -100px ;
+}
+
+p{
+  text-align: center;
+  font-size: 2vw;
+  color: var(--color-404-txt);
+}

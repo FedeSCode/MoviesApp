@@ -1,0 +1,36 @@
+<div class="container">
+  <ul>
+    <li>
+      <a [routerLink]="['/movie/', id]">
+        <div class="movie__poster">
+          <img [src]="img" [alt]="title">
+        </div>
+
+        <div class="content">
+
+          <div class="container_fav_stars">
+            <div class="stars">
+              <!--<star-rating [value]="starsNumber"
+                [totalstars]="5"
+                checkedcolor="#fb8500"
+                funcheckedcolor="black"
+                size="22px"
+                [readonly]="true">
+              </star-rating>-->
+            </div>
+
+            <span class="favorite{{favorite?'':'-not'}}">❤
+            </span>
+          </div>
+
+
+          <div class="name">
+            {{title}}
+          </div>
+
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</div>
