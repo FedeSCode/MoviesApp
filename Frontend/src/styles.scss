@@ -1,3 +1,5 @@
+//@import '~bootstrap/dist/css/bootstrap.min.css';
+
 :root{
   --color-main:#181818;
   --color-second:#121212;
@@ -21,6 +23,11 @@
   --color-info-cadre:#03ced5;
   /*register & login*/
   --color-register-cadre:#03ced5;
+
+
+  /*width*/
+  --max-whith-app-routing-content:50vw;
+
 }
 
 *{

@@ -1,0 +1,46 @@
+.container{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+img{
+  position: static;
+  top: 0;
+  bottom: 0;
+  opacity: 0.20;
+  width: 100%;
+  height: 100%;
+}
+.side{
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 52%;
+}
+.liste__fonctions{
+  margin: 0;
+  position: absolute;
+}
+.overlay {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  color: var(--color-txt);
+}
+
+ul{
+  position: relative;
+  color: #FFFFFF;
+  font-family: Bree Serif;
+  font-size: 30px;
+  line-height: 39px;
+  width: 100%;
+  text-align: left;
+  list-style: none;
+}

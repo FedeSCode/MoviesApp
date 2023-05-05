@@ -1,34 +1,43 @@
 .container{
-  display: flex;
-  justify-content: center;
-  align-self:center;
-  height: 100%;
   width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self:center;
+  justify-content: space-between;
+
+}
+
+side-background{
+  display: flex;
+  margin: 0 10% 0 0 ;
 }
 
 .details{
-  padding: 0.5rem 2rem 2rem 2rem;
+  margin: 10% 4% 4% 0;
+  display:relative;
+  padding: 2rem;
   background-color: var(--color-second);
   border-radius: 5px;
-  box-shadow: 2px 2px 4px 0 var(--color-logo-second);
+  text-align: center;
+  justify-content: center;
 }
 
 form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-app-title{
   text-align: center;
 }
 
 .login{
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: var(--color-txt);
+}
+
+app-title{
+  text-align: center;
 }

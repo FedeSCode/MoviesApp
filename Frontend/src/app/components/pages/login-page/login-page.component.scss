@@ -1,25 +1,34 @@
 .container{
-  display: flex;
-  justify-content: center;
-  align-self:center;
-  height: 100%;
   width: 100%;
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self:center;
+  justify-content: space-between;
+
+}
+
+side-background{
+  display: flex;
+  margin: 0 10% 0 0 ;
 }
 
 .details{
-  padding: 2rem 4rem 4rem 4rem;
-  border-radius: 5px;
+  margin: 10% 5% 5% 0;
+  display:relative;
+  padding: 2rem;
   background-color: var(--color-second);
-  box-shadow: 2px 2px 4px 0 var(--color-logo-second);
-
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
 }
 
 form{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 app-title{

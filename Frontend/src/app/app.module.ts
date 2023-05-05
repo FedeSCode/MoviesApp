@@ -28,6 +28,7 @@ import { LoadingComponent } from './components/partials/loading/loading.componen
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { AddMovieComponent } from './components/pages/add-movie/add-movie.component';
 import { OneMovieComponent } from './components/partials/one-movie/one-movie.component';
+import { SideBackgroundComponent } from './components/partials/side-background/side-background.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { OneMovieComponent } from './components/partials/one-movie/one-movie.com
     LoadingComponent,
     AddMovieComponent,
     OneMovieComponent,
+    SideBackgroundComponent,
   ],
   imports: [
     BrowserModule,
