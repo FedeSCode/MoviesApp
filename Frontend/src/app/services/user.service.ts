@@ -31,6 +31,7 @@ export class UserService {
           next: (user)=>{
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
+          console.log(user);
           this.toastrService.success(
             `Welcome to MoviesApp ${user.name}!!!`,
             'Login Successful'

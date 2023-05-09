@@ -1,25 +1,16 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/shared/models/User';
 
 @Component({
-  selector: 'app-add-movie',
-  templateUrl: './add-movie.component.html',
-  styleUrls: ['./add-movie.component.scss']
+  selector: 'movie-form',
+  templateUrl: './movie-form.component.html',
+  styleUrls: ['./movie-form.component.scss']
 })
-export class AddMovieComponent {
+export class MovieFormComponent {
+  movieForm!: FormGroup;
 
-  user!:User;
-
-  movieForm: FormGroup;
-  index!: number;
-
-  constructor(private fb: FormBuilder, private userService: UserService) {
-    userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
-    });
-
+  constructor(private fb: FormBuilder) {
     this.movieForm = this.fb.group({
       movieTitle:'',
       moviePlot:'',
@@ -47,7 +38,7 @@ export class AddMovieComponent {
   get movieStreaming(): FormArray {
     return this.movieForm.get('movieStreaming') as FormArray;
   }
-
+  /* Add a new input box*/
   addDirector() {
     this.movieDirectors.push(this.fb.group({
       name: '',
@@ -96,16 +87,6 @@ export class AddMovieComponent {
   onSubmit() {
     console.log(this.movieForm.value);
   }
-
-  get isAdmin(){
-    console.log(this.user.isAdmin);
-    return this.user.isAdmin;
-  }
-
-  get isAuth(){
-    /*console.log(this.user.token);*/
-    return this.user.token;
-  }
-
+  /*------------------------------ */
 
 }

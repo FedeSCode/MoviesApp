@@ -1,0 +1,102 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="movieTitle">Movie title</label>
+    <input type="text" formControlName="movieTitle" id="movieTitle" class="form-control" placeholder="Movie title">
+  </div>
+
+  <div class="form-group plot">
+    <label for="plot_txt">Plot</label>
+    <textarea formControlName="moviePlot" id="moviePlot" class="form-control" name="plot_txt" placeholder="Plot">
+    </textarea>
+  </div>
+
+  <div class="form-group poster">
+    <label for="poster_url">Poster</label>
+    <input name="poster_url" type="text" formControlName="moviePoster" id="moviePoster" class="form-control" placeholder="Poster url">
+  </div>
+
+  <div class="form-group year">
+    <label for="year_txt">Year</label>
+    <input type="text" name="year_txt" formControlName="movieYear" id="movieYear" class="form-control" placeholder="Year">
+  </div>
+
+  <div class="form-group trailer">
+    <label for="trailer_id">Id trailer</label>
+    <input type="text" name="trailer_id" formControlName="movieIdThariler" id="movieIdThariler" class="form-control" placeholder="Youtube Id trailer">
+  </div>
+
+  <div class="section directors" formArrayName="movieDirectors">
+    <h3>Directors</h3>
+    <div *ngFor="let director of movieDirectors.controls; let i=index" [formGroupName]="i">
+      <div class="form-group">
+        <label for="name">Director name</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="Director name">
+      </div>
+      <div class="form-group">
+        <label for="photo">Director photo</label>
+        <input type="text" formControlName="photo" id="photo" class="form-control" placeholder="Director url photo">
+      </div>
+      <default-button type="button" (click)="removeDirector(i)" text="Remove"></default-button>
+
+    </div>
+  </div>
+  <default-button type="button" (onClick)="addDirector()" text="Add"></default-button>
+
+  <div class="section screenwriter" formArrayName="movieScreenwriters">
+    <h3>Screenwriters</h3>
+    <div *ngFor="let screenwriter of movieScreenwriters.controls; let i=index" [formGroupName]="i">
+      <div class="form-group">
+        <label for="name">Screenwriter name</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="Screenwriter name">
+      </div>
+      <div class="form-group">
+        <label for="photo">Screenwriter photo</label>
+        <input type="text" formControlName="photo" id="photo" class="form-control" placeholder="Screenwriter url photo">
+      </div>
+      <default-button type="button" (click)="removeScreenwriter(i)" text="Remove"></default-button>
+    </div>
+  </div>
+  <default-button type="button" (onClick)="addScreenwriter()" text="Add"></default-button>
+
+  <div class="section actors" formArrayName="movieActors">
+    <h3>actors</h3>
+    <div *ngFor="let actor of movieActors.controls; let i=index" [formGroupName]="i">
+      <div class="form-group">
+        <label for="photo">Actor url photo</label>
+        <input type="text" formControlName="photo" id="photo" class="form-control" placeholder="Actor url photo">
+      </div>
+      <div class="form-group">
+        <label for="name">Actor name</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="Actor name">
+      </div>
+      <div class="form-group">
+        <label for="role">Actor role</label>
+        <input type="text" formControlName="role" id="role" class="form-control" placeholder="Actor role">
+      </div>
+      <default-button type="button" (click)="removeActor(i)" text="Remove"></default-button>
+    </div>
+  </div>
+  <default-button type="button" (onClick)="addActor()" text="Add"></default-button>
+
+
+  <div class="section streaming" formArrayName="movieStreaming">
+    <h3>streaming</h3>
+    <div *ngFor="let streaming of movieStreaming.controls; let i=index" [formGroupName]="i">
+      <div class="form-group">
+        <label for="name">Streaming name</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="Streaming site name">
+      </div>
+      <div class="form-group">
+        <label for="url">Streaming Url</label>
+        <input type="text" formControlName="url" id="url" class="form-control" placeholder="Streaming site url">
+      </div>
+      <default-button type="button" (click)="removeStreaming(i)" text="Remove"></default-button>
+    </div>
+  </div>
+  <default-button id="add_button" type="button" (onClick)="addStreaming()" text="Add"></default-button>
+
+<div class="submit">
+  <default-button  text="Save Movie"></default-button>
+</div>
+
+</form>

@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/models/User';
 })
 export class NavComponent {
   user!:User;
+
   constructor(private userService: UserService) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
@@ -24,14 +25,14 @@ export class NavComponent {
   }
 
   get isAuth(){
-
-    /*console.log(">"+this.user)*/
-    /*console.log(">"+this.user.token)*/
+    /*console.log(this.user.token);*/
     return this.user.token;
   }
 
   get isAdmin(){
-    /*console.log(this.user.isAdmin)*/
-    return true;
+    /*console.log(this.user.isAdmin);*/
+    return this.user.isAdmin;
+
   }
+
 }
