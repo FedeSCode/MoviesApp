@@ -16,11 +16,11 @@ export class DefaultButtonComponent  implements OnInit {
   @Input()
   color = '#000';
   @Input()
-  fontSizeRem = 1.3;
+  fontSizeRem= 1.3;
   @Input()
-  widthRem = 12;
-  @Output()
+  widthRem= 8;
 
+  @Output()
   onClick = new EventEmitter();
 
   constructor(){

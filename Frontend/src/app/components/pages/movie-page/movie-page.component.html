@@ -1,94 +1,96 @@
 <div class="container">
   <div class="poster">
     <img class="movie__poster" [src]="movie.poster" [alt]="movie.title">
-    </div>
-      <div class="details">
-        <div class="header">
-          <h1>{{movie.title}} <span class="favorite{{movie.favorite? '':'not'}}">❤</span></h1>
-          <p>Sorti en France en {{movie.year}}</p>
+
+  </div>
+  <div class="details">
+    <div class="header">
+      <h1>{{movie.title}} <span class="favorite{{movie.favorite? '':'not'}}">❤</span></h1>
+      <p>Sorti en France en {{movie.year}}</p>
 
 
-          <div class="stars">
-           <!-- <star-rating [value]="movie.stars" [totalstars]="5" checkedcolor="red" funcheckedcolor="black" size="22px"
+      <div class="stars">
+        <!-- <star-rating [value]="movie.stars" [totalstars]="5" checkedcolor="red" funcheckedcolor="black" size="22px"
               [readonly]="true">
             </star-rating>-->
-          </div>
-        </div>
-
-
-        <div class="trailer">
-          <h2>Trailer</h2>
-          <div class="trailer__div">
-            <iframe width="560" height="315" [src]="videoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        </div>
-          <div class="info">
-
-          <div class="directors">
-            <h2>Directors</h2>
-
-            <ul>
-              <li *ngFor="let director of movie.director">
-                <img class="img__directors" [src]="director.photo" [alt]="director.name">
-                <h3 class="txt__directors" >{{director.name}}</h3>
-              </li>
-            </ul>
-          </div>
-
-          <div class="screenwriters">
-            <h2>Screenwriters</h2>
-            <ul>
-              <li *ngFor="let screenwriter of movie.screenwriters">
-                <img class="img__screenwriters" [src]="screenwriter.photo" [alt]="movie">
-                <h3 class="txt__screenwriters" >{{screenwriter.name}}</h3>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="actors">
-          <h2>Actors</h2>
-            <ul>
-              <li *ngFor="let actors of movie.actors">
-                <img class="img__actors" [src]="actors.photo" [alt]="movie">
-                <h3 class="txt__actors" >{{actors.name}}</h3>
-                <h4>rôle: {{actors.role}}</h4>
-              </li>
-            </ul>
-        </div>
-
-        <div class="plot">
-          <h2>Plot</h2>
-          <p>{{movie.plot}}</p>
-        </div>
-
-        <div class="streaming">
-          <h2>Where can i watch it??</h2>
-          <ul>
-            <li *ngFor="let streaming of movie.streaming">
-              <h1>{{streaming.name}}</h1>
-              <a href="https://www.disneyplus.com" target="_blank" *ngIf="streaming.name.toLowerCase().includes('disney')">
-                <img class="img__streaming"
-                src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="disney">
-              </a>
-              <a href="https://www.primevideo.com" target="_blank" *ngIf="streaming.name.toLowerCase().includes('prime')">
-                <img class="img__streaming"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/440px-Amazon_Prime_Video_logo.svg.png"
-                alt="primevideo">
-              </a>
-
-              <a href="https://www.netflix.com" target="_blank" *ngIf="streaming.name.toLowerCase().includes('netflix')">
-                <img class="img__streaming"
-                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-                alt="netflix">
-              </a>
-            </li>
-          </ul>
-        </div>
-
-
-
-
-
       </div>
+    </div>
+
+
+    <div class="trailer">
+      <h2>Trailer</h2>
+      <div class="trailer__div">
+        <iframe width="560" height="315" [src]="videoUrl" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="info">
+
+      <div class="directors">
+        <h2>Directors</h2>
+
+        <ul>
+          <li *ngFor="let director of movie.director">
+            <img class="img__directors" [src]="director.photo" [alt]="director.name">
+            <h3 class="txt__directors">{{director.name}}</h3>
+          </li>
+        </ul>
+      </div>
+
+      <div class="screenwriters">
+        <h2>Screenwriters</h2>
+        <ul>
+          <li *ngFor="let screenwriter of movie.screenwriters">
+            <img class="img__screenwriters" [src]="screenwriter.photo" [alt]="movie">
+            <h3 class="txt__screenwriters">{{screenwriter.name}}</h3>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="actors">
+      <h2>Actors</h2>
+      <ul>
+        <li *ngFor="let actors of movie.actors">
+          <img class="img__actors" [src]="actors.photo" [alt]="movie">
+          <h3 class="txt__actors">{{actors.name}}</h3>
+          <h4>rôle: {{actors.role}}</h4>
+        </li>
+      </ul>
+    </div>
+
+    <div class="plot">
+      <h2>Plot</h2>
+      <p>{{movie.plot}}</p>
+    </div>
+
+    <div class="streaming">
+      <h2>Where can i watch it??</h2>
+      <ul>
+        <li *ngFor="let streaming of movie.streaming">
+          <h1>{{streaming.name}}</h1>
+          <a href="https://www.disneyplus.com" target="_blank" *ngIf="streaming.name.toLowerCase().includes('disney')">
+            <img class="img__streaming" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg"
+              alt="disney">
+          </a>
+          <a href="https://www.primevideo.com" target="_blank" *ngIf="streaming.name.toLowerCase().includes('prime')">
+            <img class="img__streaming"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Amazon_Prime_Video_logo.svg/440px-Amazon_Prime_Video_logo.svg.png"
+              alt="primevideo">
+          </a>
+
+          <a href="https://www.netflix.com" target="_blank" *ngIf="streaming.name.toLowerCase().includes('netflix')">
+            <img class="img__streaming" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+              alt="netflix">
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
   </div>
+</div>

@@ -21,16 +21,13 @@ export interface Movies {
   };  
   streaming: {
     name:string;
-    plataform:string;
     url:string
   }[];
   plot: string;
   poster: string;
   year: number;
   trailer: string;
-  reviews: string;
-  
-
+  numberOfReviews: number;
   stars: number;
   favorite: boolean;
 }
@@ -60,7 +57,6 @@ export const MovieSchema = new Schema<Movies>(
     streaming: [
       {
         name:String,
-        platform: String,
         url: String,
       },
     ],
@@ -68,7 +64,7 @@ export const MovieSchema = new Schema<Movies>(
     poster: String,
     year: String,
     trailer: String,
-    reviews: String,
+    numberOfReviews:Number,
     stars: Number,
     favorite: Boolean,
   },

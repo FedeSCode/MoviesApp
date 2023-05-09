@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/partials/nav/nav.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { RatingModule } from 'ng-starrating';
+import { NgxStarReviewModule } from 'ngx-star-review';
 import { AboutComponent } from './components/pages/about/about.component';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 import { FavoritsComponent } from './components/pages/favorits/favorits.component';
@@ -29,6 +29,7 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { AddMovieComponent } from './components/pages/add-movie/add-movie.component';
 import { OneMovieComponent } from './components/partials/one-movie/one-movie.component';
 import { SideBackgroundComponent } from './components/partials/side-background/side-background.component';
+import { StarRatingComponent } from './components/partials/star-rating/star-rating.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { SideBackgroundComponent } from './components/partials/side-background/s
     AddMovieComponent,
     OneMovieComponent,
     SideBackgroundComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,7 @@ import { SideBackgroundComponent } from './components/partials/side-background/s
       positionClass:'toast-bottom-right',
       newestOnTop:false
     }),
+    NgxStarReviewModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi:true}],
   bootstrap: [AppComponent]

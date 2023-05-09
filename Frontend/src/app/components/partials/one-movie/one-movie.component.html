@@ -7,18 +7,16 @@
         </div>
 
         <div class="content">
-
           <div class="container_fav_stars">
-            <div class="stars">
-              <!--<star-rating [value]="starsNumber"
+            <star-rating [valueOfStars]="starsNumber" icon="★" (click)="onStarClick($event)">
+            </star-rating>
+            <!--<star-rating [value]="starsNumber"
                 [totalstars]="5"
                 checkedcolor="#fb8500"
                 funcheckedcolor="black"
                 size="22px"
                 [readonly]="true">
-              </star-rating>-->
-            </div>
-
+             </star-rating>-->
             <span class="favorite{{favorite?'':'-not'}}">❤
             </span>
           </div>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'one-movie',
@@ -6,7 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./one-movie.component.scss']
 })
 export class OneMovieComponent {
-
 
   @Input()
   id!:string;
@@ -23,7 +23,11 @@ export class OneMovieComponent {
   @Input()
   starsNumber!:number;
 
-  constructor(){
 
+  constructor(){
+  }
+
+  onStarClick(event: Event) {
+    event.stopPropagation();
   }
 }

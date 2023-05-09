@@ -22,7 +22,7 @@ export class UserService {
   constructor(private http : HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
     this.user = this.userSubject.getValue();
-    console.log(this.user);
+    //console.log(this.user);
   }
 
   login(userLoging:IUserLogin):Observable<User>{

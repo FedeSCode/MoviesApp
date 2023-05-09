@@ -6,7 +6,6 @@ ul{
   overflow: hidden;
   list-style-type: none;
   padding: 0px;
-
 }
 
 li a{
@@ -43,26 +42,31 @@ li a .movie__poster img:hover{
 
 
 .container_fav_stars{
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: left;
+  text-align: center;
   width: 100%;
-  padding-right: 3rem;
+  margin-bottom: 1rem;
 }
 
 .favorite{
   position: relative;
   color: var(--color-heart);
   font-size: 1.2rem;
-  right: -4rem;
+  right: -2rem;
 }
 
 .favorite-not{
   position: relative;
   color: var(--color-not-heart-not-fav);
   font-size: 1.2rem;
-  right: -4rem;
+  right: -2rem;
 }
 
 .stars{
+  position: relative;
   padding: 0;
   margin: 0;
   color: var(--color-not-heart-not-fav);
@@ -72,3 +76,4 @@ li a .movie__poster img:hover{
   font-size: 20px;
   color: var(--color-txt);
 }
+

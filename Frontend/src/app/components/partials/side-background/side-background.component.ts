@@ -10,4 +10,6 @@ export class SideBackgroundComponent {
   cheminImage:any = "../assets/images/sidebar/Sidebar.jpg";
 
 
+
+
 }
