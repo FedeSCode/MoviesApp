@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/partials/nav/nav.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { NgxStarReviewModule } from 'ngx-star-review';
 import { AboutComponent } from './components/pages/about/about.component';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 import { FavoritsComponent } from './components/pages/favorits/favorits.component';
@@ -71,7 +70,6 @@ import { MovieFormComponent } from './components/partials/movie-form/movie-form.
       positionClass:'toast-bottom-right',
       newestOnTop:false
     }),
-    NgxStarReviewModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi:true}],
   bootstrap: [AppComponent]
