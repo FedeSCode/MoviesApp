@@ -7,5 +7,8 @@ export const MOVIES_BY_ID_URL = MOVIES_URL + '/';
 
 
 
+export const MOVIES_ADD_MOVIE_URL =  BASE_URL + '/api/movies/addMovie';
+
+
 export const USER_LOGIN_URL= BASE_URL +'/api/users/login';
 export const USER_REGISTER_URL= BASE_URL +'/api/users/register';

@@ -70,8 +70,7 @@ const generateTokenResponse = (user:User) =>{
         ,"SomeRandomText"
         ,{expiresIn:"30d"}
     );
-
-
+    
     return {
         id : user.id,
         email : user.email,

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MovieService } from 'src/app/services/movie.service';
 import { UserService } from 'src/app/services/user.service';
+import { IMovieAdd } from 'src/app/shared/interfaces/IMovieAdd';
 import { User } from 'src/app/shared/models/User';
 
 @Component({
@@ -15,7 +18,16 @@ export class AddMovieComponent {
   movieForm: FormGroup;
   index!: number;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  returnUrl:'';
+  isSubmitted= false;
+
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private movieService: MovieService,
+    private activatedRoute:ActivatedRoute,
+    private router: Router,
+    ) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
     });
@@ -28,12 +40,90 @@ export class AddMovieComponent {
       movieIdThariler:'',
       movieNumberOfReviews:0,
       movieStars:0,
-      movieDirectors: this.fb.array([]),
+      movieDirectors: this.fb.array([this.fb.group({name: '', photo: ''})]),
+      movieScreenwriters: this.fb.array([this.fb.group({name: '', photo: ''})]),
+      movieActors: this.fb.array([this.fb.group({name: '', photo: '', role: ''})]),
+      movieStreaming: this.fb.array([this.fb.group({name: '', url: ''})]),
+      /*movieDirectors: this.fb.array([]),
       movieScreenwriters: this.fb.array([]),
       movieActors: this.fb.array([]),
-      movieStreaming: this.fb.array([]),
+      movieStreaming: this.fb.array([]),*/
+    });
+
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
+  }
+
+  get fc(){
+    return this.movieForm.controls;
+  }
+
+
+  submit() {
+    this.isSubmitted = true;
+    if (this.movieForm.invalid) return;
+    const fv = this.movieForm.value;
+    const movie: IMovieAdd = {
+      title: fv.movieTitle,
+      plot: fv.moviePlot,
+      poster: fv.moviePoster,
+      year: fv.movieYear,
+      trailer: fv.movieIdThariler,
+      numberOfReviews: fv.movieNumberOfReviews,
+      stars: fv.movieStars,
+      favorite: false,
+      director: {
+        name: fv.movieDirectors.name,
+        photo: fv.movieDirectors.photo
+      },
+      screenwriters: {
+        name: fv.movieScreenwriters.name,
+        photo: fv.movieScreenwriters.photo
+      },
+      actors: {
+        name: fv.movieActors.name,
+        photo: fv.movieActors.photo,
+        role: fv.movieActors.role
+      },
+      streaming: {
+        name: fv.movieStreaming.name,
+        url: fv.movieStreaming.url
+      }
+    }
+
+    this.movieService.addMovieToDb(movie).subscribe(_ => {
+      this.router.navigateByUrl(this.returnUrl);
     });
   }
+
+
+
+  /*
+  submit(){
+    this.isSubmitted = true;
+    if(this.movieForm.invalid) return;
+
+
+
+    const fv= this.movieForm.value;
+    const movie: IMovieAdd = {
+      title: fv.movieTitle,
+      plot: fv.moviePlot,
+      poster: fv.moviePoster,
+      year: fv.movieYear,
+      trailer: fv.movieIdThariler,
+      numberOfReviews: fv.movieNumberOfReviews,
+      stars: fv.movieStars,
+      favorite: false,
+      director: fv.movieDirectors.getRawValue(),
+      screenwriters: fv.movieScreenwriters.getRawValue(),
+      actors: fv.movieActors.getRawValue(),
+      streaming: fv.movieStreaming.getRawValue(),
+    }
+
+    this.movieService.addMovieToDb(movie).subscribe(_ => {
+      this.router.navigateByUrl(this.returnUrl);
+    });
+  }*/
 
   get movieDirectors(): FormArray {
     return this.movieForm.get('movieDirectors') as FormArray;
@@ -93,17 +183,12 @@ export class AddMovieComponent {
     this.movieStreaming.removeAt(index);
   }
 
-  onSubmit() {
-    console.log(this.movieForm.value);
-  }
 
   get isAdmin(){
-    console.log(this.user.isAdmin);
     return this.user.isAdmin;
   }
 
   get isAuth(){
-    /*console.log(this.user.token);*/
     return this.user.token;
   }
 

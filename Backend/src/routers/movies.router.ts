@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import { sample_movies } from '../data';
 import asyncHandler from 'express-async-handler';
-import { MovieModel } from '../models/movies.model';
+import {Movies, MovieModel } from '../models/movies.model';
 
 
 
@@ -46,11 +46,104 @@ router.get("/:movieId",asyncHandler(
 )
 )
 
-router.post("add/movie"), asyncHandler(
+router.post("/addMovie", asyncHandler(
     async (req, res) => {
-        const movie = req.body;
+    const {
+      title,
+      plot,
+      poster,
+      year,
+      trailer,
+      numberOfReviews,
+      stars,
+      favorite,
+      director: {
+        name: directorName,
+        photo: directorPhoto
+      },
+      screenwriters: {
+        name: screenwritersName,
+        photo: screenwritersPhoto
+      },
+      actors: [{
+        photo: actorPhoto,
+        name: actorName,
+        role: actorRole
+      }],
+      streaming: {
+        name: streamingName,
+        url: streamingUrl
+      }
+    } = req.body;
+  
+    try {
+      const movie = await MovieModel.findOne({ title });
+      if (movie) {
+        res.status(400).json({ message: 'Movie already exists' });
+        return;
+      }
+      const newMovie: Movies = ({
+        id:'',
+        title,
+        plot,
+        poster,
+        year,
+        trailer,
+        numberOfReviews,
+        stars,
+        favorite,
+        director: {
+          name: directorName,
+          photo: directorPhoto
+        },
+        screenwriters: {
+          name: screenwritersName,
+          photo: screenwritersPhoto
+        },
+        actors: {
+            photo: actorPhoto,
+            name: actorName,
+            role: actorRole
+        },
+        streaming: {
+          name: streamingName,
+          url: streamingUrl
+        }
+      });
+      res.status(201).json(newMovie);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  }));
+  
+
+  
+
+/*router.post("/add/movie"), asyncHandler(
+        const {title, plot, poster, year, trailer,numberOfReviews,stars,favorite,
+            director:[ {
+              name,
+              photo
+            }],
+            screenwriters:[{
+              name
+              photo
+            }],
+            actors: [{
+              photo
+              name
+              role
+            }],
+            streaming: [{
+              name
+              url
+            }],
+        }
+        const movie = await MovieModel.findOne({title});
     }
 )
+*/
 
 /*
 *sans base des donnes*

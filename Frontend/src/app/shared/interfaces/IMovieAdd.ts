@@ -1,10 +1,10 @@
 export interface IMovieAdd{
-  id: string;
   title: string;
   director: {
     photo: string;
     name: string;
-  }
+  };
+
   screenwriters: {
     photo: String;
     name: String;
@@ -17,7 +17,7 @@ export interface IMovieAdd{
   streaming: {
     name:string;
     url:string
-  }[];
+  };
   plot: string;
   poster: string;
   year: number;

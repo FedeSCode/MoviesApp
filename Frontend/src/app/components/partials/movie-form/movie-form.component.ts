@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./movie-form.component.scss']
 })
 export class MovieFormComponent {
-  movieForm!: FormGroup;
+/*  movieForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.movieForm = this.fb.group({
@@ -38,7 +38,6 @@ export class MovieFormComponent {
   get movieStreaming(): FormArray {
     return this.movieForm.get('movieStreaming') as FormArray;
   }
-  /* Add a new input box*/
   addDirector() {
     this.movieDirectors.push(this.fb.group({
       name: '',
@@ -87,6 +86,5 @@ export class MovieFormComponent {
   onSubmit() {
     console.log(this.movieForm.value);
   }
-  /*------------------------------ */
-
+*/
 }

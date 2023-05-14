@@ -13,7 +13,6 @@ export interface Movies {
     photo: String;
     name: String;
   };
-  
   actors: {
     photo: String;
     name: String;
@@ -22,7 +21,7 @@ export interface Movies {
   streaming: {
     name:string;
     url:string
-  }[];
+  };
   plot: string;
   poster: string;
   year: number;
@@ -62,7 +61,7 @@ export const MovieSchema = new Schema<Movies>(
     ],
     plot: String,
     poster: String,
-    year: String,
+    year: Number,
     trailer: String,
     numberOfReviews:Number,
     stars: Number,
