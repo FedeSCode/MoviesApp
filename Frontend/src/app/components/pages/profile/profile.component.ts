@@ -9,13 +9,28 @@ import { User } from 'src/app/shared/models/User';
 })
 export class ProfileComponent {
 
-  userName!: string;
   user!: User;
 
-  constructor(private userService: UserService){
+  constructor(private userService: UserService) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
     })
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  logout(){
+    this.userService.logout();
+  }
+
+  get isAuth(){
+    return this.user.token;
+  }
+
+  get isAdmin(){
+    return this.user.isAdmin;
 
   }
 

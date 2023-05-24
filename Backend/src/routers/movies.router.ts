@@ -2,6 +2,7 @@ import {Router} from 'express';
 import { sample_movies } from '../data';
 import asyncHandler from 'express-async-handler';
 import {Movies, MovieModel } from '../models/movies.model';
+import { async } from 'rxjs';
 
 
 
@@ -117,9 +118,24 @@ router.post("/addMovie", asyncHandler(
       console.log(error);
       res.status(500).json({ message: 'Internal server error' });
     }
-  }));
-  
+}));
 
+router.patch("/update/:id", asyncHandler(
+  async(req, res) =>{
+
+  }
+));
+
+router.delete("/remove/:id", asyncHandler(
+  async(req, res) =>{
+    console.log(req.params.id);
+    console.log(req.body);
+    
+  }
+));
+
+
+  
 
 /*
 *sans base des donnes*
