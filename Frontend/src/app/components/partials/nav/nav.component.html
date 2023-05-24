@@ -24,7 +24,7 @@
           <a routerLink="login">Login</a>
         </li>
         <li class="menu-container">
-          <a class="profil" routerLink="/dashboard" *ngIf="isAuth">{{user.name}}<span>▼</span></a>
+          <a class="profil" routerLink="/profile" *ngIf="isAuth">{{user.name}}<span>▼</span></a>
           <div class="menu">
             <li routerLinkActive="active" *ngIf="isAdmin">
               <a routerLink="addMovie">AddMovie</a>

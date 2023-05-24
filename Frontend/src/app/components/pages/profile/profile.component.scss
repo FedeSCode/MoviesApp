@@ -1,0 +1,74 @@
+.container{
+  margin-top: 5%;
+}
+
+.content,h2{
+  color: aliceblue;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+  margin: 2% 10%;
+}
+
+.user_profile_img{
+  position: relative;
+}
+
+.user_profile_img img{
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user_profile_name{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  color: var(--color-txt);
+  top :5rem;
+  left: 5rem;
+}
+.user_profile_name h1{
+  font-size: 4rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.profile_resume{
+  display: flex;
+  flex-direction: row;
+}
+
+.counter,.resume{
+  margin-left:5%;
+  width: auto;
+  background-color: var(--color-second);
+  color: var(--color-text-profile-second);
+  border-radius: 20px;
+  text-align: center;
+}
+.counter:hover,.resume:hover{
+  color: var(--color-txt);
+  transition: 1000ms ease-in-out;
+  transform: scale(1.1);
+}
+
+.counter h3,.resume h3{
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.fav,.myList,.info{
+  margin: 0 10%;
+  /*height: 20rem;*/
+  //background-color: red;
+  height: auto;
+}
+a{
+  color: var(--color-txt);
+}
+a:hover{
+  color: var(--color-logo-second);
+  transition: 500ms ease-in-out;
+}

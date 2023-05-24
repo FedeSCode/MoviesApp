@@ -40,14 +40,11 @@ export class AddMovieComponent {
       movieIdThariler:'',
       movieNumberOfReviews:0,
       movieStars:0,
-      movieDirectors: this.fb.array([this.fb.group({name: '', photo: ''})]),
-      movieScreenwriters: this.fb.array([this.fb.group({name: '', photo: ''})]),
-      movieActors: this.fb.array([this.fb.group({name: '', photo: '', role: ''})]),
-      movieStreaming: this.fb.array([this.fb.group({name: '', url: ''})]),
-      /*movieDirectors: this.fb.array([]),
-      movieScreenwriters: this.fb.array([]),
-      movieActors: this.fb.array([]),
-      movieStreaming: this.fb.array([]),*/
+      movieDirectors: this.fb.array([this.fb.group({name:'', photo:''})]),
+      movieScreenwriters: this.fb.array([this.fb.group({name:'', photo:''})]),
+      movieActors: this.fb.array([this.fb.group({name:'', photo:'', role:''})]),
+      movieStreaming: this.fb.array([this.fb.group({name:'', url:''})]),
+
     });
 
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
@@ -56,7 +53,6 @@ export class AddMovieComponent {
   get fc(){
     return this.movieForm.controls;
   }
-
 
   submit() {
     this.isSubmitted = true;
@@ -75,7 +71,7 @@ export class AddMovieComponent {
         name: fv.movieDirectors.name,
         photo: fv.movieDirectors.photo
       },
-      screenwriters: {
+      screenwriters:{
         name: fv.movieScreenwriters.name,
         photo: fv.movieScreenwriters.photo
       },
@@ -92,38 +88,10 @@ export class AddMovieComponent {
 
     this.movieService.addMovieToDb(movie).subscribe(_ => {
       this.router.navigateByUrl(this.returnUrl);
+      console.log(movie);
     });
   }
 
-
-
-  /*
-  submit(){
-    this.isSubmitted = true;
-    if(this.movieForm.invalid) return;
-
-
-
-    const fv= this.movieForm.value;
-    const movie: IMovieAdd = {
-      title: fv.movieTitle,
-      plot: fv.moviePlot,
-      poster: fv.moviePoster,
-      year: fv.movieYear,
-      trailer: fv.movieIdThariler,
-      numberOfReviews: fv.movieNumberOfReviews,
-      stars: fv.movieStars,
-      favorite: false,
-      director: fv.movieDirectors.getRawValue(),
-      screenwriters: fv.movieScreenwriters.getRawValue(),
-      actors: fv.movieActors.getRawValue(),
-      streaming: fv.movieStreaming.getRawValue(),
-    }
-
-    this.movieService.addMovieToDb(movie).subscribe(_ => {
-      this.router.navigateByUrl(this.returnUrl);
-    });
-  }*/
 
   get movieDirectors(): FormArray {
     return this.movieForm.get('movieDirectors') as FormArray;

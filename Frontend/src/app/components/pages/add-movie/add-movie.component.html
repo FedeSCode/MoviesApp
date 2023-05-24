@@ -56,11 +56,11 @@
         <div *ngFor="let director of movieDirectors.controls; let i=index" [formGroupName]="i">
           <div class="form-group">
             <label for="name">Director name</label>
-            <input type="text" formControlName="name" id="name" class="form-control" placeholder="Director name">
+            <input type="text" formControlName="directorName" id="name" class="form-control" placeholder="Director name">
           </div>
           <div class="form-group">
             <label for="photo">Director photo</label>
-            <input type="text" formControlName="photo" id="photo" class="form-control" placeholder="Director url photo">
+            <input type="text" formControlName="directorPhoto" id="photo" class="form-control" placeholder="Director url photo">
           </div>
           <default-button type="button" (click)="removeDirector(i)" text="Remove"></default-button>
 

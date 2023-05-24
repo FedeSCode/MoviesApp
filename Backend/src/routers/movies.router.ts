@@ -58,18 +58,18 @@ router.post("/addMovie", asyncHandler(
       stars,
       favorite,
       director: {
-        name: directorName,
+        name: directorName ,
         photo: directorPhoto
       },
-      screenwriters: {
+      screenwriters:{
         name: screenwritersName,
         photo: screenwritersPhoto
       },
-      actors: [{
+      actors: {
         photo: actorPhoto,
         name: actorName,
         role: actorRole
-      }],
+      },
       streaming: {
         name: streamingName,
         url: streamingUrl
@@ -82,6 +82,7 @@ router.post("/addMovie", asyncHandler(
         res.status(400).json({ message: 'Movie already exists' });
         return;
       }
+      console.log(movie);
       const newMovie: Movies = ({
         id:'',
         title,
@@ -110,7 +111,8 @@ router.post("/addMovie", asyncHandler(
           url: streamingUrl
         }
       });
-      res.status(201).json(newMovie);
+      const dbMovies = await MovieModel.create(newMovie);
+      res.send(dbMovies);
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'Internal server error' });
@@ -118,32 +120,6 @@ router.post("/addMovie", asyncHandler(
   }));
   
 
-  
-
-/*router.post("/add/movie"), asyncHandler(
-        const {title, plot, poster, year, trailer,numberOfReviews,stars,favorite,
-            director:[ {
-              name,
-              photo
-            }],
-            screenwriters:[{
-              name
-              photo
-            }],
-            actors: [{
-              photo
-              name
-              role
-            }],
-            streaming: [{
-              name
-              url
-            }],
-        }
-        const movie = await MovieModel.findOne({title});
-    }
-)
-*/
 
 /*
 *sans base des donnes*

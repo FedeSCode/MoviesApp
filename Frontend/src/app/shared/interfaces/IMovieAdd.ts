@@ -4,7 +4,6 @@ export interface IMovieAdd{
     photo: string;
     name: string;
   };
-
   screenwriters: {
     photo: String;
     name: String;

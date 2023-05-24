@@ -30,6 +30,7 @@ import { OneMovieComponent } from './components/partials/one-movie/one-movie.com
 import { SideBackgroundComponent } from './components/partials/side-background/side-background.component';
 import { StarRatingComponent } from './components/partials/star-rating/star-rating.component';
 import { MovieFormComponent } from './components/partials/movie-form/movie-form.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { MovieFormComponent } from './components/partials/movie-form/movie-form.
     SideBackgroundComponent,
     StarRatingComponent,
     MovieFormComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
