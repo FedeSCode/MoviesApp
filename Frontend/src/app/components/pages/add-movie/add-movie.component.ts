@@ -55,9 +55,12 @@ export class AddMovieComponent {
   }
 
   submit() {
+    console.log(`here:`, this.movieForm.value);
+
     this.isSubmitted = true;
     if (this.movieForm.invalid) return;
     const fv = this.movieForm.value;
+
     const movie: IMovieAdd = {
       title: fv.movieTitle,
       plot: fv.moviePlot,
@@ -67,29 +70,17 @@ export class AddMovieComponent {
       numberOfReviews: fv.movieNumberOfReviews,
       stars: fv.movieStars,
       favorite: false,
-      director: {
-        name: fv.movieDirectors.name,
-        photo: fv.movieDirectors.photo
-      },
-      screenwriters:{
-        name: fv.movieScreenwriters.name,
-        photo: fv.movieScreenwriters.photo
-      },
-      actors: {
-        name: fv.movieActors.name,
-        photo: fv.movieActors.photo,
-        role: fv.movieActors.role
-      },
-      streaming: {
-        name: fv.movieStreaming.name,
-        url: fv.movieStreaming.url
-      }
-    }
+      director: fv.movieDirectors.map((d: any) => ({name: d.name, photo: d.photo})),
+      screenwriters: fv.movieScreenwriters.map((s: any) => ({name: s.name, photo: s.photo})),
+      actors: fv.movieActors.map((a: any) => ({name: a.name, photo: a.photo, role: a.role})),
+      streaming: fv.movieStreaming.map((s: any) => ({name: s.name, url: s.url})),
+      };
 
+      console.log(`New movie:`,movie)
     this.movieService.addMovieToDb(movie).subscribe(_ => {
       this.router.navigateByUrl(this.returnUrl);
-      console.log(movie);
     });
+
   }
 
 

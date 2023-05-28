@@ -47,6 +47,37 @@ router.get("/:movieId",asyncHandler(
 )
 )
 
+
+router.post('/addMovie', async (req, res) => {
+  try {
+    const movieData = req.body; // Supposons que les données du film sont envoyées dans le corps de la requête
+
+    // Créer une nouvelle instance du modèle MovieModel avec les données reçues
+    const newMovie = new MovieModel({
+      title: movieData.title,
+      plot: movieData.plot,
+      poster: movieData.poster,
+      year: movieData.year,
+      trailer: movieData.trailer,
+      numberOfReviews: movieData.numberOfReviews,
+      stars: movieData.stars,
+      favorite: false,
+      director: movieData.director,
+      screenwriters: movieData.screenwriters,
+      actors: movieData.actors,
+      streaming: movieData.streaming
+    });
+
+    // Enregistrer le nouveau film dans la base de données
+    const dbMovies = await MovieModel.create(newMovie);
+    res.send(dbMovies);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+/*
 router.post("/addMovie", asyncHandler(
     async (req, res) => {
     const {
@@ -83,7 +114,6 @@ router.post("/addMovie", asyncHandler(
         res.status(400).json({ message: 'Movie already exists' });
         return;
       }
-      console.log(movie);
       const newMovie: Movies = ({
         id:'',
         title,
@@ -112,6 +142,7 @@ router.post("/addMovie", asyncHandler(
           url: streamingUrl
         }
       });
+      
       const dbMovies = await MovieModel.create(newMovie);
       res.send(dbMovies);
     } catch (error) {
@@ -119,23 +150,27 @@ router.post("/addMovie", asyncHandler(
       res.status(500).json({ message: 'Internal server error' });
     }
 }));
-
+*/
 router.patch("/update/:id", asyncHandler(
   async(req, res) =>{
 
   }
 ));
 
+
 router.delete("/remove/:id", asyncHandler(
-  async(req, res) =>{
-    console.log(req.params.id);
-    console.log(req.body);
-    
+  async (req, res) => {
+  //console.log(req.params.id);
+  const result = await MovieModel.findByIdAndDelete(req.params.id);
+  //console.log("result"+result);
+  if (result) {
+    res.send({ "status": true, "message": "Movie Deleted!!" });
+  } else {
+    res.send({ "status": false, "message": "Movie not deleted!!" });
   }
-));
+}));
 
 
-  
 
 /*
 *sans base des donnes*

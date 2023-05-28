@@ -79,7 +79,17 @@ iframe {
   font-weight: 600;
 }
 
+.admin{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+}
 
+.admin default-button{
+  margin-left: 3rem;
+}
 
 ul li{
   list-style: none;

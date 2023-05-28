@@ -3,10 +3,18 @@ import { Injectable } from '@angular/core';
 
 import { Observable, tap } from 'rxjs';
 /*import { sample_movies } from 'src/data';*/
-import { MOVIES_ADD_MOVIE_URL, MOVIES_BY_ID_URL, MOVIES_BY_SEARCH_URL, MOVIES_URL } from '../shared/constants/urls';
 import { Movie } from '../shared/models/Movie';
 import { IMovieAdd } from '../shared/interfaces/IMovieAdd';
 import { ToastrService } from 'ngx-toastr';
+
+import {
+  MOVIES_ADD_MOVIE_URL,
+  MOVIES_BY_ID_URL,
+  MOVIES_BY_SEARCH_URL,
+  MOVIES_REMOVE_MOVIE_BY_ID_URL,
+  MOVIES_UPDATE_MOVIE_BY_ID_URL,
+  MOVIES_URL,
+} from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +57,14 @@ export class MovieService {
       );
   }
 
+  deleateMovie(movieId:string):Observable<Movie>{
+    return this.http.delete<Movie>(MOVIES_REMOVE_MOVIE_BY_ID_URL+movieId);
+  }
+
+  //@TODO
+  updateMovie(movieId:string){
+   // return this.http.patch<Movie>(MOVIES_UPDATE_MOVIE_BY_ID_URL+movieId);
+  }
 
 }
 

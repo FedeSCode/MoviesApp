@@ -21,6 +21,11 @@
             <p>Sorti en France en {{movie.year}}</p>
           </div>
 
+          <div class="admin" *ngIf="isAdmin">
+            <default-button type="button" text="Delete" (onClick)="deleteMovie()"></default-button>
+            <default-button type="button" text="Update" (onClick)="updateMovie()"></default-button>
+          </div>
+
         </div>
       </div>
     </section>

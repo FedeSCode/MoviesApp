@@ -13,6 +13,7 @@ export interface Movies {
     photo: String;
     name: String;
   };
+  
   actors: {
     photo: String;
     name: String;
