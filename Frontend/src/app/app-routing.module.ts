@@ -10,6 +10,7 @@ import { MoviePageComponent } from './components/pages/movie-page/movie-page.com
 import { MovieComponent } from './components/pages/movie/movie.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
+import { UpdateMovieComponent } from './components/pages/update-movie/update-movie.component';
 
 const routes: Routes = [
   /*nav pages*/
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path:'search/:searchTerm', component: MovieComponent},
   { path: 'movie/:id', component: MoviePageComponent},
   { path: 'addMovie', component: AddMovieComponent},
+  { path: 'update/:id', component:UpdateMovieComponent},
 
   /*login*/
   { path: 'login', component: LoginPageComponent},

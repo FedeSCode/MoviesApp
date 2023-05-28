@@ -31,6 +31,7 @@ import { SideBackgroundComponent } from './components/partials/side-background/s
 import { StarRatingComponent } from './components/partials/star-rating/star-rating.component';
 import { MovieFormComponent } from './components/partials/movie-form/movie-form.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
+import { UpdateMovieComponent } from './components/pages/update-movie/update-movie.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
     StarRatingComponent,
     MovieFormComponent,
     ProfileComponent,
+    UpdateMovieComponent,
   ],
   imports: [
     BrowserModule,

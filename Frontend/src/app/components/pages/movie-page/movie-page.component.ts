@@ -17,6 +17,7 @@ export class MoviePageComponent implements OnInit{
   movie!: Movie;
   videoUrl!: SafeResourceUrl;
   returnUrl='/movie';
+  updateUrl='/update/';
 
 
 
@@ -71,15 +72,9 @@ export class MoviePageComponent implements OnInit{
 
   updateMovie(){
     if(confirm('Are you sure to update info in this movie??')){
-      /*this.activatedRoute.params.subscribe((params) => {
-        if(params.id)
-            this.movieService.updateMovie(params.id, ).subscribe(serverMovie =>{
-            this.movie=serverMovie;
-          });
-        }
-      );*/
-      //this.router.navigateByUrl(this.returnUrl);
-      alert("Movie updated");
+      const newUpdateUrl =this.updateUrl+this.movie.id
+      console.log(newUpdateUrl);
+      this.router.navigateByUrl(newUpdateUrl);
     }
   }
 
