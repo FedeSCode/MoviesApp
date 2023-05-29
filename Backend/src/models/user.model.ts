@@ -5,14 +5,21 @@ export interface User{
     email:string;
     password:string;
     name:string;
-    isAdmin:boolean;
+    isAdmin:boolean;  
+    favorite: [{
+        idMovie: string;
+    }];    
 }
 
 export const UserSchema = new Schema<User>({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     name: {type: String, required: true},
-    isAdmin: {type: Boolean, default: false}
+    isAdmin: {type: Boolean, default: false},
+    favorite: [{
+        idMovie: String,
+        },
+    ],
     
 },{
     toJSON:{

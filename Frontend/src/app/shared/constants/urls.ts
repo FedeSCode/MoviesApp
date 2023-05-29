@@ -12,6 +12,15 @@ export const MOVIES_REMOVE_MOVIE_BY_ID_URL =  MOVIES_URL + '/remove/';
 
 
 
+/*User */
+export const USER_URL= BASE_URL +'/api/users';
+export const USER_LOGIN_URL= USER_URL +'/login';
+export const USER_REGISTER_URL= USER_URL +'/register';
+export const USER_ADD_FAVORITS_URL= USER_URL +'/addFavorite'
+;
 
-export const USER_LOGIN_URL= BASE_URL +'/api/users/login';
-export const USER_REGISTER_URL= BASE_URL +'/api/users/register';
+
+/*Fav */
+export const Favorite_URL = BASE_URL + '/api/favorites';
+
+

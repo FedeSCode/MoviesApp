@@ -1,9 +1,9 @@
 <div class="container">
   <ul>
-    <li *ngFor="let movie of movies">
+    <li *ngFor="let movie of movies" >
       <one-movie id="{{movie.id}}"
       img="{{movie.poster}}"
-      [favorite]="movie.favorite"
+      [favorite]="favorite"
       [starsNumber]="movie.stars"
       title="{{movie.title}}"
       ></one-movie>

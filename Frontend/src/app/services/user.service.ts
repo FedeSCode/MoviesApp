@@ -2,10 +2,11 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_ADD_FAVORITS_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/User';
+import { IUserAddFav } from '../shared/interfaces/IUserAddFav';
 
 
 const USER_KEY = 'User';
@@ -13,6 +14,7 @@ const USER_KEY = 'User';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
   public userObservable: Observable<User>;
@@ -80,5 +82,13 @@ export class UserService {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     window.location.reload();
+  }
+
+
+  addToFavorite(userFav:IUserAddFav){
+    console.log('add to fav');
+    return this.http.post<User>(USER_ADD_FAVORITS_URL, userFav);
+
+
   }
 }

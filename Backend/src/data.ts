@@ -443,13 +443,39 @@ export const sample_users: any[] = [
   {
     name: "Federico",
     email: "fede@test.fr",
-    password: "1234",
+    password: "$2a$10$0JtHVpvWO7B0PgSCfT/ABO.O.5ZbkWTsqPtXukhrC329awKS7oPFu",
     isAdmin: true,
+    favorite:[
+      {idMovie:"64734ce21e75f306febc9a58"}
+      ,{idMovie:"6459ee3f3710a80843b09bb6"} 
+    ]
   },
   {
-    name: "Test",
-    email: "test@test.fr",
-    password: "123",
+    name: "Admin",
+    email: "admin@test.fr",
+    password: "$2a$10$0JtHVpvWO7B0PgSCfT/ABO.O.5ZbkWTsqPtXukhrC329awKS7oPFu",
     isAdmin: true,
+    favorite:[
+      {
+        idMovie:"64734ce21e75f306febc9a58"},
+      {idMovie:"6459ee3f3710a80843b09bb6"
+      } 
+    ]
   },
+];
+
+
+export const sample_favorite: any[] = [
+  {
+    idUser:"6418115652b7cb63a915f677" ,
+    favorite:[
+      {
+        idMovie:"64734ce21e75f306febc9a58" ,
+      },
+      {
+        idMovie:"6459ee3f3710a80843b09bb6"
+      } 
+    ]
+
+  }
 ];

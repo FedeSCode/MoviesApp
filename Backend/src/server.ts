@@ -3,9 +3,13 @@ dotenv.config();
 
 import express from "express";
 import cors from "cors";
+
+import { dbConnect } from './configs/database.config';
+
+/*routers*/
 import moviesRouter from './routers/movies.router';
 import usersRouter from "./routers/users.router";
-import { dbConnect } from './configs/database.config';
+import favoritesRouter from './routers/favorites.router';
 
 
 dbConnect();
@@ -23,6 +27,7 @@ app.use(cors({
 
 app.use("/api/movies", moviesRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/favorites", favoritesRouter);
 
 
 app.listen(port, ()=> {

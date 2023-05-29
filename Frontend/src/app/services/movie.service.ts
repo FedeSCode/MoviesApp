@@ -62,8 +62,9 @@ export class MovieService {
   }
 
   //@TODO
-  updateMovie(movieId:string){
-   // return this.http.patch<Movie>(MOVIES_UPDATE_MOVIE_BY_ID_URL+movieId);
+  updateMovie(movieId:string, movie:IMovieAdd){
+    console.log('Movie service: movieId ', movieId, 'update: ',movie);
+    return this.http.patch<Movie>(MOVIES_UPDATE_MOVIE_BY_ID_URL+movieId,movie);
   }
 
 }

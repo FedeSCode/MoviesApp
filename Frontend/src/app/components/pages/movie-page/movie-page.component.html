@@ -17,7 +17,11 @@
           </div>
 
           <div class="movie_info">
-            <h1>{{movie.title}} <span class="favorite{{movie.favorite? '':'not'}}">❤</span></h1>
+            <h1>{{movie.title}}
+            <span class="favorite{{movie.favorite? '':'not'}}">❤</span></h1>
+            <default-button class="addFav" type="button" text="addToFav" (onClick)="addToFavorits()"></default-button>
+            <star-rating [valueOfStars]="movie.stars" icon="★">
+            </star-rating>
             <p>Sorti en France en {{movie.year}}</p>
           </div>
 
@@ -97,6 +101,18 @@
       </div>
 
 
+    </section>
+
+
+    <section class="comments">
+      <h2>Comentaires:</h2>
+
+
+      <ul>
+        <li>
+          Comentaires
+        </li>
+      </ul>
     </section>
 
 

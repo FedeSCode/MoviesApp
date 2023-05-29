@@ -1,3 +1,24 @@
 <div class="container">
-  <app-title title="Favorits"></app-title>
+  <app-title title="Favorits de {{user.name}}"></app-title>
+
+  <div class="content">
+    <!--<ul>
+    <div class="content"  *ngIf="someFav">
+      <li *ngFor="let fav of user.favorite">
+        <h2>{{fav.idMovie}}</h2>
+      </li>
+    </ul>
+  -->
+    <ul *ngFor="let movie of movies">
+      <li>
+        <one-movie  id="{{movie.id}}"
+        img="{{movie.poster}}"
+        [favorite]="movie.favorite"
+        [starsNumber]="movie.stars"
+        title="{{movie.title}}"
+        ></one-movie>
+      </li>
+    </ul>
+  </div>
+
 </div>

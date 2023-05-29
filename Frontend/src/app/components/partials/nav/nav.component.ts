@@ -32,7 +32,6 @@ export class NavComponent {
   get isAdmin(){
     /*console.log(this.user.isAdmin);*/
     return this.user.isAdmin;
-
   }
 
 }
