@@ -56,7 +56,7 @@ router.post(
       email: email.toLowerCase(),
       password: encyptedPassword,
       isAdmin: false,
-      favorite: [{ idMovie: "" }],
+      favorite: [{idMovie:""}],
     };
 
     const dbUser = await UserModel.create(newUser);

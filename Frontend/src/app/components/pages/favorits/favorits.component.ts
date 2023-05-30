@@ -22,23 +22,21 @@ export class FavoritsComponent {
     });
 
     this.userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
       this.getIdMovieFavorite().then((idMovies) => {
         if(idMovies.length !== 0 ){
         this.getFavMoviesById(idMovies).subscribe((serverMovies) => {
           this.movies = serverMovies;
-          //console.log(this.movies);
+          console.log(this.movies);
         });
         }
       });
-
+      this.user = newUser;
     });
   }
 
   ngOnInit():void {
+
   }
-
-
 
   async getIdMovieFavorite(): Promise<string[]> {
     if (this.user.favorite) {
