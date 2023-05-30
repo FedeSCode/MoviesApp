@@ -1,6 +1,9 @@
 {
     "name": "movies-app",
     "version": "1.0.0",
+    "engines": {
+        "node": ">=18 <19"
+    },
     "scripts": {
         "start": "cd Backend/built && node server.js",
         "prebuild": "cd Backend && npm run build",
