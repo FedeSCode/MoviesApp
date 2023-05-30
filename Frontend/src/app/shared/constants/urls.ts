@@ -1,5 +1,7 @@
 /*When is in a real server it will change to appName.Domain.com */
-const BASE_URL = 'http://localhost:5000';
+import {environment} from "src/environments/environment";
+
+const BASE_URL = environment.production? '' : 'http://localhost:5000';
 
 /*CRUD*/
 export const MOVIES_URL = BASE_URL + '/api/movies';
