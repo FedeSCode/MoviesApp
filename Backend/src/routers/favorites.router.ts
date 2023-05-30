@@ -1,7 +1,6 @@
 import {Router} from 'express';
 import { sample_favorite } from '../data';
 import asyncHandler from 'express-async-handler';
-import { async } from 'rxjs';
 import { FavoriteModel } from '../models/favorites.model';
 
 

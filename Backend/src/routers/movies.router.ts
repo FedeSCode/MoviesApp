@@ -2,7 +2,6 @@ import {Router} from 'express';
 import { sample_movies } from '../data';
 import asyncHandler from 'express-async-handler';
 import {Movies, MovieModel } from '../models/movies.model';
-import { async } from 'rxjs';
 
 
 
