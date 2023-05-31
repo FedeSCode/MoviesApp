@@ -1,7 +1,43 @@
-.about{
+*{
+  color: var(--color-txt);
+}
+
+.container{
   width: 100%;
   margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-p{
-  color:var(--color-txt);
+.left{
+  margin: 8%;
+  width: 30%;
+}
+
+.rigth{
+  display: flex;
+  flex-direction: column;
+}
+
+.rigth .div__txt{
+  height: 10rem;
+  width: 70%;
+  display: flex;
+  font-weight: 800;
+  font-size: 50px;
+  justify-content: center;
+}
+
+#hello,h1{
+  color: var(--color-logo-second);
+}
+
+.about__txt{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about__txt h1{
+  text-align: center;
 }
