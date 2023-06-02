@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import { User, UserModel } from "../models/user.model";
 import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
-import { async } from "rxjs";
 
 const router = Router();
 
