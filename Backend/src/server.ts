@@ -18,8 +18,8 @@ dbConnect();
 
 const app = express();
 
-//const port = process.env.PORT || 5000;
-const port = 5000;
+const port = process.env.PORT || 5000;
+//const port = 5000;
 
 app.use(express.json());
 
@@ -34,11 +34,11 @@ app.use("/api/users", usersRouter);
 app.use("/api/favorites", favoritesRouter);
 
 /*deploy*/
-/*app.use(express.static('public'));
+app.use(express.static('public'));
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname,'public','index.html'));
 });
-*/
+
 app.listen(port, ()=> {
     console.log(`Server running on port http://localhost:${port}`);
 })
