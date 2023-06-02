@@ -21,7 +21,9 @@ export const USER_LOGIN_URL= USER_URL +'/login';
 export const USER_REGISTER_URL= USER_URL +'/register';
 export const USER_ADD_FAVORITS_URL= USER_URL +'/addFavorite'
 export const USER_REMOVE_FAVORITE_URL= USER_URL +'/removeFavorite'
+export const USER_GET_MYLIST_MOVIES_URL= USER_URL +'/getMyListMovies/'
 export const USER_GET_FAVORIT_URL= USER_URL +'/getFavorite/'
+
 ;
 
 

@@ -448,6 +448,12 @@ export const sample_users: any[] = [
     favorite:[
       {idMovie:"64734ce21e75f306febc9a58"}
       ,{idMovie:"6459ee3f3710a80843b09bb6"} 
+    ],
+    myList:[
+      {
+        idMovie:"64734ce21e75f306febc9a58"},
+      {idMovie:"6459ee3f3710a80843b09bb6"
+      } 
     ]
   },
   {
@@ -456,6 +462,12 @@ export const sample_users: any[] = [
     password: "$2a$10$0JtHVpvWO7B0PgSCfT/ABO.O.5ZbkWTsqPtXukhrC329awKS7oPFu",
     isAdmin: true,
     favorite:[
+      {
+        idMovie:"64734ce21e75f306febc9a58"},
+      {idMovie:"6459ee3f3710a80843b09bb6"
+      } 
+    ],
+    myList:[
       {
         idMovie:"64734ce21e75f306febc9a58"},
       {idMovie:"6459ee3f3710a80843b09bb6"
@@ -475,7 +487,7 @@ export const sample_favorite: any[] = [
       {
         idMovie:"6459ee3f3710a80843b09bb6"
       } 
-    ]
+    ],
 
   }
 ];

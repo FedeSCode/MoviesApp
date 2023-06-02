@@ -11,6 +11,7 @@ import { MovieComponent } from './components/pages/movie/movie.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { UpdateMovieComponent } from './components/pages/update-movie/update-movie.component';
+import { MyListComponent } from './components/pages/my-list/my-list.component';
 
 const routes: Routes = [
   /*nav pages*/
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'favorits', component: FavoritsComponent },
+  { path: 'myList', component: MyListComponent },
   { path: 'profile', component: ProfileComponent },
 
   /*movie pages*/

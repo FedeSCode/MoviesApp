@@ -9,6 +9,9 @@ export interface User{
     favorite: [{
         idMovie: string;
     }];    
+    myList: [{
+        idMovie: string;
+    }];    
 }
 
 export const UserSchema = new Schema<User>({
@@ -18,8 +21,11 @@ export const UserSchema = new Schema<User>({
     isAdmin: {type: Boolean, default: false},
     favorite: [{
         idMovie: String,
-        },
-    ],
+    }],
+    
+    myList: [{
+        idMovie: String,
+    }],
     
 },{
     toJSON:{

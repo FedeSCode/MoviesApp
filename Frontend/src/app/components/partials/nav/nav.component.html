@@ -33,6 +33,9 @@
               <a routerLink="favorits">Favorits</a>
             </li>
             <li routerLinkActive="active" *ngIf="isAuth">
+              <a routerLink="myList">myList</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAuth">
               <a (click)="logout()">Logout</a>
             </li>
           </div>

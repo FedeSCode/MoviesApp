@@ -33,6 +33,7 @@ import { MovieFormComponent } from './components/partials/movie-form/movie-form.
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { UpdateMovieComponent } from './components/pages/update-movie/update-movie.component';
 import { FavButtonComponent } from './components/partials/fav-button/fav-button.component';
+import { MyListComponent } from './components/pages/my-list/my-list.component';
 
 
 
@@ -65,6 +66,7 @@ import { FavButtonComponent } from './components/partials/fav-button/fav-button.
     ProfileComponent,
     UpdateMovieComponent,
     FavButtonComponent,
+    MyListComponent,
   ],
   imports: [
     BrowserModule,

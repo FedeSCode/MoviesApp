@@ -61,6 +61,34 @@ router.get("/getFavorite/:id", asyncHandler(
   })
 )
 
+router.get("/getMyListMovies/:id", asyncHandler( 
+  async(req,res)=>{
+  const { idUser } = req.body
+  const user = await UserModel.findById(req.params.id);
+  console.log('user userrouter', user)
+  if(user){
+    const listFav = user.myList;
+    console.log('myListMovies : ' , listFav);
+
+    res.send(listFav);
+  }
+  })
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Database*/
 
 router.post(
@@ -100,6 +128,7 @@ router.post(
       password: encyptedPassword,
       isAdmin: false,
       favorite: [{idMovie:""}],
+      myList: [{idMovie:""}],
     };
 
     const dbUser = await UserModel.create(newUser);
@@ -124,6 +153,7 @@ const generateTokenResponse = (user: User) => {
     name: user.name,
     isAdmin: user.isAdmin,
     favorite: user.favorite,
+    myList: user.myList,
     token: token,
   };
 };

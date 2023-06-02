@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_ADD_FAVORITS_URL, USER_GET_FAVORIT_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_REMOVE_FAVORITE_URL } from '../shared/constants/urls';
+import { USER_ADD_FAVORITS_URL, USER_GET_FAVORIT_URL, USER_GET_MYLIST_MOVIES_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_REMOVE_FAVORITE_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/User';
@@ -106,5 +106,13 @@ export class UserService {
     //console.log(this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id)));
     return this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id));
     //return this.http.get<Favorite[]>(USER_GET_FAVORIT_URL, { params: { idUser: id } });
+  }
+
+  getMyListMovies(id: string) {
+    const userid: IUserId = {
+      idUser: id,
+    };
+    console.log(USER_GET_MYLIST_MOVIES_URL.concat(id));
+    return this.http.get<Favorite>(USER_GET_MYLIST_MOVIES_URL.concat(id));
   }
 }
