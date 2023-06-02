@@ -28,7 +28,7 @@ export class MoviePageComponent implements OnInit {
   ) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
-      console.log(this.user.id);
+      //console.log(this.user.id);
     });
 
     activatedRoute.params.subscribe((params) => {
@@ -46,6 +46,11 @@ export class MoviePageComponent implements OnInit {
 
   get isAdmin() {
     return this.user.isAdmin;
+  }
+
+  get isAuth(){
+    /*console.log(this.user.token);*/
+    return this.user.token;
   }
 
   deleteMovie() {
@@ -77,14 +82,14 @@ export class MoviePageComponent implements OnInit {
             idMovie: params.id,
             idUser: this.user.id,
           };
-          console.log(addFav.idMovie,'idUser->',addFav.idUser);
+          //console.log(addFav.idMovie,'idUser->',addFav.idUser);
           this.userService.addToFavorite(addFav).subscribe((serverUser) => {
             this.user = serverUser;
           });
         }
       });
     }
-    this.router.navigateByUrl('/favorits');
+    //this.router.navigateByUrl('/movie');
 
   }
 }

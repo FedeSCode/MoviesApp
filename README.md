@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="" rel="noopener">
+  <a href="https://moviesapp-ti0s.onrender.com/home" rel="noopener">
  <img width=200px height=200px src="Frontend/src/assets/images/android-chrome-512x512.png" alt="Project logo"></a>
 </p>
 
@@ -8,6 +8,7 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Status](https://img.shields.io/badge/Render-succes-green)](https://moviesapp-ti0s.onrender.com/home)
 
 
 </div>

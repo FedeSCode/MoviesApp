@@ -4,8 +4,14 @@ import jwt from "jsonwebtoken";
 import { User, UserModel } from "../models/user.model";
 import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
+import { async } from "rxjs";
 
 const router = Router();
+
+let __USER__ID__ =  '';
+
+console.log('__USER__ID__ : ' ,__USER__ID__);
+
 
 router.get(
   "/seed",
@@ -18,7 +24,43 @@ router.get(
     await UserModel.create(sample_users);
     res.send("Seed is done!");
   })
-);
+  );
+  
+  router.get("/", asyncHandler(
+    async(req, res) =>{
+      const user = await UserModel.find();
+      res.send(user);
+  }
+
+))
+
+router.get("/user/:id", asyncHandler(
+  async(req, res)=>{
+    const user = await UserModel.findById(req.params.id);
+    res.send(user);
+  }
+))
+
+router.get("/getFavorite/:id", asyncHandler( 
+  async(req,res)=>{
+  console.log('passe par la');
+  const { idUser } = req.body
+  const user = await UserModel.findById(req.params.id);
+  console.log('user userrouter', user)
+  if(user){
+    const listFav = user.favorite;
+    console.log('listFavorite : ' , listFav);
+
+    res.send(listFav);
+  }
+  /*donne un tableau de id*/
+  /*if (user) {
+    const listFav = user.favorite.map(item => item.idMovie);
+    console.log('listFavorite:', listFav);
+    res.send(listFav);
+  }*/
+  })
+)
 
 /*Database*/
 
@@ -27,11 +69,13 @@ router.post(
   asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
-
     if (user && (await bcrypt.compare(password, user.password))) {
       console.log("ici juste appres add dans edit");
       res.send(generateTokenResponse(user));
       console.log("ici");
+      console.log('user.id ------>',user.id);
+      __USER__ID__ = user.id;
+      console.log('__USER__ID__ : ' ,__USER__ID__);
     } else {
       res.status(401).send("User not found");
     }
@@ -87,12 +131,12 @@ const generateTokenResponse = (user: User) => {
 
 router.post("/addFavorite", async (req, res, next) => {
   const { idMovie, idUser } = req.body;
-  console.log("idUser-->", idUser);
-  console.log("idMovie-->", idMovie);
+  //console.log("idUser-->", idUser);
+  //console.log("idMovie-->", idMovie);
 
   try {
     // Rechercher l'utilisateur par son ID
-    console.log("hereeeee");
+    //console.log("hereeeee");
     const user = await UserModel.findById(idUser);
 
     if (!user) {
@@ -116,6 +160,7 @@ router.post("/addFavorite", async (req, res, next) => {
   }
 });
 export default router;
+
 
 /*
 router.post("/login", (req, res)=>{

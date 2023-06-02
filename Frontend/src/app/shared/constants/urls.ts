@@ -2,6 +2,7 @@
 import {environment} from "src/environments/environment";
 
 const BASE_URL = environment.production? '' : 'http://localhost:5000';
+//const BASE_URL = 'http://localhost:5000';
 
 /*CRUD*/
 export const MOVIES_URL = BASE_URL + '/api/movies';
@@ -19,6 +20,7 @@ export const USER_URL= BASE_URL +'/api/users';
 export const USER_LOGIN_URL= USER_URL +'/login';
 export const USER_REGISTER_URL= USER_URL +'/register';
 export const USER_ADD_FAVORITS_URL= USER_URL +'/addFavorite'
+export const USER_GET_FAVORIT_URL= USER_URL +'/getFavorite/'
 ;
 
 

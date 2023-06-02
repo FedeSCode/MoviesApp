@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/models/User';
 
 @Component({
   selector: 'one-movie',
@@ -23,11 +25,19 @@ export class OneMovieComponent {
   @Input()
   starsNumber!:number;
 
+  user!:User;
 
-  constructor(){
+  constructor(userService: UserService) {
+    userService.userObservable.subscribe((newUser) => {
+      this.user = newUser;
+    })
   }
 
+  get isAuth(){
+    return this.user.token;
+  }
   onStarClick(event: Event) {
     event.stopPropagation();
   }
+
 }

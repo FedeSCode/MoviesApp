@@ -17,8 +17,10 @@
                 size="22px"
                 [readonly]="true">
              </star-rating>-->
-            <span class="favorite{{favorite?'':'-not'}}">❤
-            </span>
+             <div *ngIf="isAuth">
+             <span class="favorite{{favorite?'':'-not'}}">❤
+              </span>
+              </div>
           </div>
 
 

@@ -1,12 +1,14 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_ADD_FAVORITS_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_ADD_FAVORITS_URL, USER_GET_FAVORIT_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/User';
 import { IUserAddFav } from '../shared/interfaces/IUserAddFav';
+import { Favorite } from '../shared/models/Favorits';
+import { IUserId } from '../shared/interfaces/IUserId';
 
 
 const USER_KEY = 'User';
@@ -27,6 +29,7 @@ export class UserService {
     ) {
     this.userObservable = this.userSubject.asObservable();
     this.user = this.userSubject.getValue();
+    //console.log(this.user.id)
   }
 
   login(userLoging:IUserLogin):Observable<User>{
@@ -35,7 +38,7 @@ export class UserService {
           next: (user)=>{
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
-          console.log(user);
+          //console.log(user);
           this.toastrService.success(
             `Welcome to MoviesApp ${user.name}!!!`,
             'Login Successful'
@@ -86,9 +89,17 @@ export class UserService {
 
 
   addToFavorite(userFav:IUserAddFav){
-    console.log('add to fav');
+    console.log(USER_ADD_FAVORITS_URL, userFav);
     return this.http.post<User>(USER_ADD_FAVORITS_URL, userFav);
+  }
 
-
+  getFavorites(id: string) {
+    const userid: IUserId = {
+      idUser: id,
+    };
+    console.log(USER_GET_FAVORIT_URL.concat(id));
+    console.log(this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id)));
+    return this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id));
+    //return this.http.get<Favorite[]>(USER_GET_FAVORIT_URL, { params: { idUser: id } });
   }
 }
