@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { IUserAddFav } from 'src/app/shared/interfaces/IUserAddFav';
 import { User } from 'src/app/shared/models/User';
@@ -23,18 +23,19 @@ export class FavButtonComponent {
 
   constructor(
     private userService: UserService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router:Router,
   ) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
       //console.log(this.user.id);
     });
-    this.isFavoriteById()
+    this.isFavoriteById();
     console.log(this.isFavorite);
     //this.isFavorite = this.isFavoriteById();
   }
 
-  addToFavorits() {
+  /*addToFavorits() {
     if (confirm('Are you sure to add this movie to your favourites??')) {
       this.activatedRoute.params.subscribe((params) => {
         if (params.id) {
@@ -48,27 +49,41 @@ export class FavButtonComponent {
         }
       });
     }
-  }
+  }*/
 
   addToFavoritsAnyTime() {
     // if (confirm('Are you sure to add this movie to your favourites??')) {
+    if (this.id) {
+      const addFav: IUserAddFav = {
+        idMovie: this.id,
+        idUser: this.user.id,
+      };
+      this.userService.addToFavorite(addFav).subscribe((serverUser) => {
+        this.user = serverUser;
+      });
+    }
+    this.router.navigateByUrl('/movie');
+
+    // }
+  }
+
+  removeFromFavoritsAnyTime() {
+    // if (confirm('Are you sure to remove this movie to your favourites??')) {
       if (this.id) {
         const addFav: IUserAddFav = {
           idMovie: this.id,
           idUser: this.user.id,
         };
-        this.userService.addToFavorite(addFav).subscribe((serverUser) => {
+        this.userService.removeFromFavorite(addFav).subscribe((serverUser) => {
           this.user = serverUser;
         });
       }
+      this.router.navigateByUrl('/movie');
+
     // }
+
   }
 
-  removeFromFavorits() {
-    // if (confirm('Are you sure to remove this movie from your favourites??')) {
-      console.log('remove');
-    // }
-  }
   /*is fav*/
   async getIdMovieFavorites(): Promise<string[]> {
     const idFav = await this.userService.getFavorites(this.user.id).toPromise();
@@ -84,7 +99,7 @@ export class FavButtonComponent {
     try {
       const idMovies = await this.getIdMovieFavorites();
       let isFavorite = false;
-      idMovies.forEach(id => {
+      idMovies.forEach((id) => {
         if (this.id === id) {
           isFavorite = true;
         }
@@ -94,5 +109,4 @@ export class FavButtonComponent {
       console.error(error);
     }
   }
-
 }

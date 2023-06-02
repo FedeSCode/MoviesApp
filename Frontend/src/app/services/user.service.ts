@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_ADD_FAVORITS_URL, USER_GET_FAVORIT_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_ADD_FAVORITS_URL, USER_GET_FAVORIT_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_REMOVE_FAVORITE_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/User';
@@ -91,6 +91,11 @@ export class UserService {
   addToFavorite(userFav:IUserAddFav){
     console.log(USER_ADD_FAVORITS_URL, userFav);
     return this.http.post<User>(USER_ADD_FAVORITS_URL, userFav);
+  }
+
+  removeFromFavorite(userFav:IUserAddFav){
+    console.log(USER_REMOVE_FAVORITE_URL, userFav);
+    return this.http.post<User>(USER_REMOVE_FAVORITE_URL, userFav);
   }
 
   getFavorites(id: string) {

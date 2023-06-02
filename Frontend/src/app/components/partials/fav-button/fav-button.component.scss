@@ -43,15 +43,19 @@ button:active{
 .remove button:active{
   color: black;
 }
+
+.remove button::selection{
+  color: white;
+}
+
 .add button{
   color: var(--color-txt);
+}
 
+.add button::selection{
+  color: red;
 }
 
 .add button:active{
   color: red;
-}
-
-.remove button:hover{
-  // background-color: white;
 }

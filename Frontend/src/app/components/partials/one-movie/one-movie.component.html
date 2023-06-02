@@ -17,13 +17,13 @@
                 size="22px"
                 [readonly]="true">
              </star-rating>-->
-             <div *ngIf="isAuth">
+            <div *ngIf="isAuth">
               <div class="favorite">
-                <fav-button id="{{id}}" ></fav-button>
+                <fav-button id="{{id}}" (click)="onStarClick($event)"></fav-button>
               </div>
               <!--<span class="favorite{{favorite?'':'-not'}}">❤
               </span>-->
-              </div>
+            </div>
           </div>
           <div class="name">
             {{title}}

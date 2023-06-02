@@ -158,6 +158,45 @@ router.post("/addFavorite", async (req, res, next) => {
     res.status(500).json({ message: "Erreur lors de l'ajout du favori" });
   }
 });
+
+
+router.post("/removeFavorite", async (req, res) => {
+  const { idMovie, idUser } = req.body;
+
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+
+    const existingFavoriteIndex = user.favorite.findIndex(
+      (favorite) => favorite.idMovie === idMovie
+    );
+
+    if (existingFavoriteIndex === -1) {
+      return res
+        .status(404)
+        .json({ message: "Le film n'est pas dans les favoris de l'utilisateur" });
+    }
+
+    user.favorite.splice(existingFavoriteIndex, 1);
+    await user.save();
+
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la suppression du favori" });
+  }
+});
+
+
+
+
+
+
+
+
+
 export default router;
 
 

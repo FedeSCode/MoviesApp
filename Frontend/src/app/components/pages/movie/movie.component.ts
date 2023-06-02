@@ -34,7 +34,6 @@ export class MovieComponent {
         movieObsevable = this.movieService.getAll();
       }
       movieObsevable.subscribe((serverMovies) =>{
-        this.fav();
         this.movies = serverMovies;
       });
 
@@ -43,31 +42,6 @@ export class MovieComponent {
 
   }
 
-  async getIdMovieFavorite(): Promise<string[]> {
-    if (this.user.favorite) {
-      const favoriteMovies = this.user.favorite;
-      const idMovies = favoriteMovies.map((favorite) => favorite.idMovie);
-      //console.log('here', idMovies);
-      return idMovies;
-    }
-    return [];
-  }
-
-  fav(){
-    let ids = this.getIdMovieFavorite().then((idMovies)=>{
-      idMovies.forEach(id => {
-        this.movies.forEach(movie =>{
-          if (id == movie.id.toString()){
-            return this.favorite = true;
-          }
-          else{
-            return this.favorite = false;
-          }
-        })
-      });
-    }
-    );
-  }
 
 
   ngOnInit():void {
