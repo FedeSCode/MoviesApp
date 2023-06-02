@@ -55,15 +55,10 @@ li a .movie__poster img:hover{
   position: relative;
   color: var(--color-heart);
   font-size: 1.2rem;
-  right: -2rem;
+  right: -1.5rem;
+  top: -0.5rem;
 }
 
-.favorite-not{
-  position: relative;
-  color: var(--color-not-heart-not-fav);
-  font-size: 1.2rem;
-  right: -2rem;
-}
 
 .stars{
   position: relative;

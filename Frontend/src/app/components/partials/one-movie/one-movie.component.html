@@ -18,16 +18,16 @@
                 [readonly]="true">
              </star-rating>-->
              <div *ngIf="isAuth">
-             <span class="favorite{{favorite?'':'-not'}}">❤
-              </span>
+              <div class="favorite">
+                <fav-button id="{{id}}" ></fav-button>
+              </div>
+              <!--<span class="favorite{{favorite?'':'-not'}}">❤
+              </span>-->
               </div>
           </div>
-
-
           <div class="name">
             {{title}}
           </div>
-
         </div>
       </a>
     </li>

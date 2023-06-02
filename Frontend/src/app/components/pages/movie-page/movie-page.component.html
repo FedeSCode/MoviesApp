@@ -18,10 +18,14 @@
 
           <div class="movie_info">
             <h1>{{movie.title}}
-            <span class="favorite{{movie.favorite? '':'not'}}">❤</span></h1>
-            <div *ngIf="isAuth">
-              <default-button class="addFav" type="button" text="addToFav" (onClick)="addToFavorits() "></default-button>
-            </div>
+              <div>
+                <!--<span class="favorite{{movie.favorite? '':'not'}}">❤</span>-->
+                <fav-button id="{{movie.id}}"></fav-button>
+              </div>
+            </h1>
+            <!--<div *ngIf="isAuth">
+              <default-button class="addFav" type="button" text="addToFav" (onClick)="addToFavorits()"></default-button>
+            </div>-->
             <star-rating [valueOfStars]="movie.stars" icon="★">
             </star-rating>
             <p>Sorti en France en {{movie.year}}</p>

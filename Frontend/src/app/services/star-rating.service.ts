@@ -9,7 +9,7 @@ export class StarRatingService {
 
   constructor(private http: HttpClient) { }
 
-  getRating(id: number): Observable<number> {
-  }
+  // getRating(id: number): Observable<number> {
+  // }
 
 }

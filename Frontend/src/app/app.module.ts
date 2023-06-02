@@ -32,6 +32,8 @@ import { StarRatingComponent } from './components/partials/star-rating/star-rati
 import { MovieFormComponent } from './components/partials/movie-form/movie-form.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { UpdateMovieComponent } from './components/pages/update-movie/update-movie.component';
+import { FavButtonComponent } from './components/partials/fav-button/fav-button.component';
+
 
 
 @NgModule({
@@ -62,6 +64,7 @@ import { UpdateMovieComponent } from './components/pages/update-movie/update-mov
     MovieFormComponent,
     ProfileComponent,
     UpdateMovieComponent,
+    FavButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,57 @@
+.container{
+  height: 100%;
+  width: 100%;
+}
+
+.favorite{
+  padding: auto;
+}
+
+button{
+  height: 3rem;
+  width:  3rem;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 2rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  opacity: 0.8;
+}
+
+button:hover{
+  // background-color: var(--color-logo-second);
+  // background-color: red;
+  color: red;
+  transform: scale(1.2);
+  transition: 40ms ease-in-out;
+  opacity: 1;
+
+}
+
+button:active{
+  transform: scale(0.9);
+  //background-color: transparent;
+  background-color: var(--color-logo-second);
+  color: red;
+  transition: 20ms ease-in;
+}
+
+.remove button{
+  color: red;
+}
+.remove button:active{
+  color: black;
+}
+.add button{
+  color: var(--color-txt);
+
+}
+
+.add button:active{
+  color: red;
+}
+
+.remove button:hover{
+  // background-color: white;
+}

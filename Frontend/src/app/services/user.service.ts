@@ -98,7 +98,7 @@ export class UserService {
       idUser: id,
     };
     console.log(USER_GET_FAVORIT_URL.concat(id));
-    console.log(this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id)));
+    //console.log(this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id)));
     return this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id));
     //return this.http.get<Favorite[]>(USER_GET_FAVORIT_URL, { params: { idUser: id } });
   }
