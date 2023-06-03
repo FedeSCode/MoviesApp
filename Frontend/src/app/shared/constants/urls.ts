@@ -20,7 +20,9 @@ export const USER_URL= BASE_URL +'/api/users';
 export const USER_LOGIN_URL= USER_URL +'/login';
 export const USER_REGISTER_URL= USER_URL +'/register';
 export const USER_ADD_FAVORITS_URL= USER_URL +'/addFavorite'
+export const USER_ADD_MOVIE_TO_MY_LIST_URL= USER_URL +'/addToMyList'
 export const USER_REMOVE_FAVORITE_URL= USER_URL +'/removeFavorite'
+export const USER_REMOVE_MOVIE_FROM_MY_LIST_URL= USER_URL +'/removeMovieFromList'
 export const USER_GET_MYLIST_MOVIES_URL= USER_URL +'/getMyListMovies/'
 export const USER_GET_FAVORIT_URL= USER_URL +'/getFavorite/'
 

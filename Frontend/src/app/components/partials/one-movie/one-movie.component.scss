@@ -8,7 +8,7 @@ ul{
   padding: 0px;
 }
 
-li a{
+li{
   display: flex;
   margin: 0.5rem;
   height: 30rem;
@@ -19,6 +19,7 @@ li a{
   color: var(--color-not-heart-not-fav);
   background-color: var(--color-second);
 }
+
 
 li a:hover{
   cursor: pointer;
@@ -35,7 +36,6 @@ li a .movie__poster img:hover{
 
 .content{
   position: relative;
-  margin-top: 0.3rem;
   padding: 0.5rem 0.6rem;
   height: 7rem;
 }
@@ -60,7 +60,6 @@ li a .movie__poster img:hover{
   z-index: 1;
 }
 
-
 .stars{
   position: relative;
   padding: 0;
@@ -73,3 +72,39 @@ li a .movie__poster img:hover{
   color: var(--color-txt);
 }
 
+.fake_fav_button{
+  height: 3rem;
+  width:  3rem;
+  margin-top: -0.8rem;
+  margin-left: 1.2rem;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 2rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  opacity: 0.8;
+  cursor: pointer;
+  color: aliceblue;
+  cursor: not-allowed;
+
+
+}
+
+.fake_fav_button:hover{
+  // background-color: var(--color-logo-second);
+  // background-color: red;
+  color: red;
+  transform: scale(1.2);
+  transition: 40ms ease-in-out;
+  opacity: 1;
+
+}
+
+.favorite{
+  display: flex;
+  flex-direction: row;
+  transform: scale(0.8);
+  margin-left: -1.5rem;
+  margin-top: -0.5rem;
+}

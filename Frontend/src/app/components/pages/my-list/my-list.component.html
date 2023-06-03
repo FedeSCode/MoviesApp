@@ -4,11 +4,8 @@
   <div class="content">
     <ul *ngFor="let movie of movies">
       <li>
-        <one-movie  id="{{movie.id}}"
-        img="{{movie.poster}}"
-        [starsNumber]="movie.stars"
-        title="{{movie.title}}"
-        ></one-movie>
+        <one-movie id="{{movie.id}}" img="{{movie.poster}}" [starsNumber]="movie.stars"
+          title="{{movie.title}}"></one-movie>
       </li>
     </ul>
   </div>

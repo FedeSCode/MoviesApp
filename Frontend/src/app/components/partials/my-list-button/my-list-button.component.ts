@@ -5,11 +5,11 @@ import { IUserAddFav } from 'src/app/shared/interfaces/IUserAddFav';
 import { User } from 'src/app/shared/models/User';
 
 @Component({
-  selector: 'fav-button',
-  templateUrl: './fav-button.component.html',
-  styleUrls: ['./fav-button.component.scss'],
+  selector: 'my-list-button',
+  templateUrl: './my-list-button.component.html',
+  styleUrls: ['./my-list-button.component.scss']
 })
-export class FavButtonComponent {
+export class MyListButtonComponent {
   @Input()
   id!: string;
 
@@ -31,62 +31,40 @@ export class FavButtonComponent {
       //console.log(this.user.id);
     });
     this.isFavoriteById();
-    //console.log(this.isFavorite);
+    console.log(this.isFavorite);
     //this.isFavorite = this.isFavoriteById();
   }
 
-  /*addToFavorits() {
-    if (confirm('Are you sure to add this movie to your favourites??')) {
-      this.activatedRoute.params.subscribe((params) => {
-        if (params.id) {
-          const addFav: IUserAddFav = {
-            idMovie: params.id,
-            idUser: this.user.id,
-          };
-          this.userService.addToFavorite(addFav).subscribe((serverUser) => {
-            this.user = serverUser;
-          });
-        }
-      });
-    }
-  }*/
-
-  addToFavoritsAnyTime() {
-    // if (confirm('Are you sure to add this movie to your favourites??')) {
+  addMyListAnyTime() {
     if (this.id) {
       const addFav: IUserAddFav = {
         idMovie: this.id,
         idUser: this.user.id,
       };
-      this.userService.addToFavorite(addFav).subscribe((serverUser) => {
+      this.userService.addToMyList(addFav).subscribe((serverUser) => {
         this.user = serverUser;
       });
-      this.router.navigateByUrl('/movie/'+this.id);
-
     }
-
-    // }
+    this.router.navigateByUrl('/movie');
   }
 
-  removeFromFavoritsAnyTime() {
-    // if (confirm('Are you sure to remove this movie to your favourites??')) {
+  removeFromMyListAnyTime() {
       if (this.id) {
         const addFav: IUserAddFav = {
           idMovie: this.id,
           idUser: this.user.id,
         };
-        this.userService.removeFromFavorite(addFav).subscribe((serverUser) => {
+        this.userService.removeFromMyList(addFav).subscribe((serverUser) => {
           this.user = serverUser;
         });
-        this.router.navigateByUrl('/movie/'+this.id);
-
       }
+      this.router.navigateByUrl('/movie');
   }
 
   /*is fav*/
-  async getIdMovieFavorites(): Promise<string[]> {
-    const idFav = await this.userService.getFavorites(this.user.id).toPromise();
-    //console.log(idFav);
+  async getIdMyListMovies(): Promise<string[]> {
+    const idFav = await this.userService.getMyListMovies(this.user.id).toPromise();
+    console.log(idFav);
     let idMovies: string[] = [];
     if (Array.isArray(idFav)) {
       idMovies = idFav.map((favorite) => favorite.idMovie);
@@ -96,7 +74,7 @@ export class FavButtonComponent {
 
   async isFavoriteById() {
     try {
-      const idMovies = await this.getIdMovieFavorites();
+      const idMovies = await this.getIdMyListMovies();
       let isFavorite = false;
       idMovies.forEach((id) => {
         if (this.id === id) {
@@ -108,4 +86,5 @@ export class FavButtonComponent {
       console.error(error);
     }
   }
+
 }

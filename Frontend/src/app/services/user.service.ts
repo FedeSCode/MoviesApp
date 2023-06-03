@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_ADD_FAVORITS_URL, USER_GET_FAVORIT_URL, USER_GET_MYLIST_MOVIES_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_REMOVE_FAVORITE_URL } from '../shared/constants/urls';
+import { USER_ADD_FAVORITS_URL, USER_ADD_MOVIE_TO_MY_LIST_URL, USER_GET_FAVORIT_URL, USER_GET_MYLIST_MOVIES_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_REMOVE_FAVORITE_URL, USER_REMOVE_MOVIE_FROM_MY_LIST_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/User';
@@ -89,20 +89,30 @@ export class UserService {
 
 
   addToFavorite(userFav:IUserAddFav){
-    console.log(USER_ADD_FAVORITS_URL, userFav);
+    //console.log(USER_ADD_FAVORITS_URL, userFav);
     return this.http.post<User>(USER_ADD_FAVORITS_URL, userFav);
   }
 
+  addToMyList(userFav:IUserAddFav){
+    //console.log(USER_ADD_MOVIE_TO_MY_LIST_URL, userFav);
+    return this.http.post<User>(USER_ADD_MOVIE_TO_MY_LIST_URL, userFav);
+  }
+
   removeFromFavorite(userFav:IUserAddFav){
-    console.log(USER_REMOVE_FAVORITE_URL, userFav);
+   // console.log(USER_REMOVE_FAVORITE_URL, userFav);
     return this.http.post<User>(USER_REMOVE_FAVORITE_URL, userFav);
+  }
+
+  removeFromMyList(userFav:IUserAddFav){
+    console.log(USER_REMOVE_FAVORITE_URL, userFav);
+    return this.http.post<User>(USER_REMOVE_MOVIE_FROM_MY_LIST_URL, userFav);
   }
 
   getFavorites(id: string) {
     const userid: IUserId = {
       idUser: id,
     };
-    console.log(USER_GET_FAVORIT_URL.concat(id));
+   // console.log(USER_GET_FAVORIT_URL.concat(id));
     //console.log(this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id)));
     return this.http.get<Favorite>(USER_GET_FAVORIT_URL.concat(id));
     //return this.http.get<Favorite[]>(USER_GET_FAVORIT_URL, { params: { idUser: id } });
@@ -112,7 +122,7 @@ export class UserService {
     const userid: IUserId = {
       idUser: id,
     };
-    console.log(USER_GET_MYLIST_MOVIES_URL.concat(id));
+    //console.log(USER_GET_MYLIST_MOVIES_URL.concat(id));
     return this.http.get<Favorite>(USER_GET_MYLIST_MOVIES_URL.concat(id));
   }
 }

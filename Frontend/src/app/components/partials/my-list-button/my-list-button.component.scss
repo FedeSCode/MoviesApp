@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.favorite{
+.mylist{
   padding: auto;
 }
 
@@ -17,17 +17,15 @@ button{
   border-radius: 50%;
   text-align: center;
   opacity: 0.8;
-  cursor: pointer;
+  transform: scale(1.8);
+  color: var(--color-txt);
 }
 
 button:hover{
-  // background-color: var(--color-logo-second);
-  // background-color: red;
   color: red;
-  transform: scale(1.2);
+  transform: scale(2.0);
   transition: 40ms ease-in-out;
   opacity: 1;
-
 }
 
 button:active{
@@ -38,30 +36,4 @@ button:active{
   transition: 20ms ease-in;
 }
 
-.fake_fav_button{
-  color: aliceblue;
-  cursor: not-allowed;
-}
 
-.remove button{
-  color: red;
-}
-.remove button:active{
-  color: black;
-}
-
-.remove button::selection{
-  color: white;
-}
-
-.add button{
-  color: var(--color-txt);
-}
-
-.add button::selection{
-  color: red;
-}
-
-.add button:active{
-  color: red;
-}

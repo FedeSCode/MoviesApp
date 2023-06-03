@@ -5,31 +5,35 @@
         <div class="movie__poster">
           <img [src]="img" [alt]="title">
         </div>
+      </a>
 
-        <div class="content">
-          <div class="container_fav_stars">
-            <star-rating [valueOfStars]="starsNumber" icon="★" (click)="onStarClick($event)">
-            </star-rating>
-            <!--<star-rating [value]="starsNumber"
+      <div class="content">
+        <div class="container_fav_stars">
+          <star-rating [valueOfStars]="starsNumber" icon="★" (click)="onStarClick($event)">
+          </star-rating>
+          <!--<star-rating [value]="starsNumber"
                 [totalstars]="5"
                 checkedcolor="#fb8500"
                 funcheckedcolor="black"
                 size="22px"
                 [readonly]="true">
              </star-rating>-->
-            <div *ngIf="isAuth">
-              <div class="favorite">
-                <fav-button id="{{id}}" (click)="onStarClick($event)"></fav-button>
-              </div>
-              <!--<span class="favorite{{favorite?'':'-not'}}">❤
-              </span>-->
+          <div>
+            <div class="favorite">
+              <fav-button class="fav-button" id="{{id}}"></fav-button>
+              <my-list-button class="my-list-button" id="{{id}}"></my-list-button>
             </div>
-          </div>
-          <div class="name">
-            {{title}}
+
+            <!--<div *ngIf="!isAuth">
+              <button routerLink="/login" class="fake_fav_button">❤</button>
+            </div>-->
           </div>
         </div>
-      </a>
+        <div class="name">
+          {{title}}
+        </div>
+      </div>
+
     </li>
   </ul>
 

@@ -75,20 +75,6 @@ router.get("/getMyListMovies/:id", asyncHandler(
   })
 )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Database*/
 
 router.post(
@@ -189,6 +175,32 @@ router.post("/addFavorite", async (req, res, next) => {
   }
 });
 
+router.post("/addToMyList", async (req, res, next) => {
+  const { idMovie, idUser } = req.body;
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+    const existingFavorite = user.myList.find(
+      (myList) => myList.idMovie === idMovie
+    );
+    if (existingFavorite) {
+      return res
+        .status(409)
+        .json({
+          message: "Le film est déjà dans les favoris de l'utilisateur",
+        });
+    }
+    user.myList.push({ idMovie });
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de l'ajout du favori" });
+  }
+});
+
 
 router.post("/removeFavorite", async (req, res) => {
   const { idMovie, idUser } = req.body;
@@ -216,6 +228,35 @@ router.post("/removeFavorite", async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: "Erreur lors de la suppression du favori" });
+  }
+});
+
+router.post("/removeMovieFromList", async (req, res) => {
+  const { idMovie, idUser } = req.body;
+
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+
+    const existingFavoriteIndex = user.myList.findIndex(
+      (myList) => myList.idMovie === idMovie
+    );
+
+    if (existingFavoriteIndex === -1) {
+      return res
+        .status(404)
+        .json({ message: "Le film n'est pas dans Ma liste de l'utilisateur" });
+    }
+
+    user.myList.splice(existingFavoriteIndex, 1);
+    await user.save();
+
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la suppression de ma liste" });
   }
 });
 

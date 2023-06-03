@@ -36,6 +36,7 @@ export class OneMovieComponent {
   get isAuth(){
     return this.user.token;
   }
+
   onStarClick(event: Event) {
     event.stopPropagation();
   }
