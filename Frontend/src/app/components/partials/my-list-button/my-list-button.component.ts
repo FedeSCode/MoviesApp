@@ -31,7 +31,7 @@ export class MyListButtonComponent {
       //console.log(this.user.id);
     });
     this.isFavoriteById();
-    console.log(this.isFavorite);
+    //console.log(this.isFavorite);
     //this.isFavorite = this.isFavoriteById();
   }
 
@@ -64,7 +64,7 @@ export class MyListButtonComponent {
   /*is fav*/
   async getIdMyListMovies(): Promise<string[]> {
     const idFav = await this.userService.getMyListMovies(this.user.id).toPromise();
-    console.log(idFav);
+    //console.log(idFav);
     let idMovies: string[] = [];
     if (Array.isArray(idFav)) {
       idMovies = idFav.map((favorite) => favorite.idMovie);

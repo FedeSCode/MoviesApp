@@ -9,7 +9,7 @@ const router = Router();
 
 let __USER__ID__ =  '';
 
-console.log('__USER__ID__ : ' ,__USER__ID__);
+//console.log('__USER__ID__ : ' ,__USER__ID__);
 
 
 router.get(
@@ -42,13 +42,13 @@ router.get("/user/:id", asyncHandler(
 
 router.get("/getFavorite/:id", asyncHandler( 
   async(req,res)=>{
-  console.log('passe par la');
+  // console.log('passe par la');
   const { idUser } = req.body
   const user = await UserModel.findById(req.params.id);
-  console.log('user userrouter', user)
+  // console.log('user userrouter', user)
   if(user){
     const listFav = user.favorite;
-    console.log('listFavorite : ' , listFav);
+    //console.log('listFavorite : ' , listFav);
 
     res.send(listFav);
   }
@@ -65,10 +65,10 @@ router.get("/getMyListMovies/:id", asyncHandler(
   async(req,res)=>{
   const { idUser } = req.body
   const user = await UserModel.findById(req.params.id);
-  console.log('user userrouter', user)
+  //console.log('user userrouter', user)
   if(user){
     const listFav = user.myList;
-    console.log('myListMovies : ' , listFav);
+    //console.log('myListMovies : ' , listFav);
 
     res.send(listFav);
   }
@@ -83,12 +83,12 @@ router.post(
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {
-      console.log("ici juste appres add dans edit");
+      //console.log("ici juste appres add dans edit");
       res.send(generateTokenResponse(user));
-      console.log("ici");
-      console.log('user.id ------>',user.id);
-      __USER__ID__ = user.id;
-      console.log('__USER__ID__ : ' ,__USER__ID__);
+      //console.log("ici");
+      // console.log('user.id ------>',user.id);
+      //__USER__ID__ = user.id;
+      //console.log('__USER__ID__ : ' ,__USER__ID__);
     } else {
       res.status(401).send("User not found");
     }

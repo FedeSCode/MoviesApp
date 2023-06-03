@@ -119,9 +119,6 @@ router.patch("/update/:id", async (req, res) => {
 });
 
 
-
-
-
 router.delete("/remove/:id", asyncHandler(
   async (req, res) => {
   //console.log(req.params.id);

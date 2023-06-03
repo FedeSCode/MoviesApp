@@ -35,6 +35,7 @@ import { UpdateMovieComponent } from './components/pages/update-movie/update-mov
 import { FavButtonComponent } from './components/partials/fav-button/fav-button.component';
 import { MyListComponent } from './components/pages/my-list/my-list.component';
 import { MyListButtonComponent } from './components/partials/my-list-button/my-list-button.component';
+import { OneBigMovieComponent } from './components/partials/one-big-movie/one-big-movie.component';
 
 
 
@@ -69,6 +70,7 @@ import { MyListButtonComponent } from './components/partials/my-list-button/my-l
     FavButtonComponent,
     MyListComponent,
     MyListButtonComponent,
+    OneBigMovieComponent,
   ],
   imports: [
     BrowserModule,
