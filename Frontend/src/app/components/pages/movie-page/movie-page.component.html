@@ -29,6 +29,8 @@
             <star-rating [valueOfStars]="movie.stars" icon="★">
             </star-rating>
             <p>Sorti en France en {{movie.year}}</p>
+            <!--<p>Durée : {{movie.time}} min</p>-->
+            <p>Durée : {{duration}}</p>
           </div>
 
           <div class="admin" *ngIf="isAdmin">
@@ -115,7 +117,7 @@
 
 
       <ul>
-        <li>
+        <li *ngFor="let comment of movie.comments">
           Comentaires
         </li>
       </ul>

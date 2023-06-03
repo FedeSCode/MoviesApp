@@ -23,6 +23,12 @@ export interface Movies {
     name:string;
     url:string
   };
+  comments:{
+    userId:String;
+    nameUser:String;
+    rating: number;
+    comment:String;
+  };
   plot: string;
   poster: string;
   year: number;
@@ -30,6 +36,8 @@ export interface Movies {
   numberOfReviews: number;
   stars: number;
   favorite: boolean;
+  time:number;
+
 }
 
 export const MovieSchema = new Schema<Movies>(
@@ -60,13 +68,23 @@ export const MovieSchema = new Schema<Movies>(
         url: String,
       },
     ],
+    comments:[
+      {
+      userId:String,
+      nameUser:String,
+      rating: Number,
+      comment:String,   
+      },
+   ],
     plot: String,
     poster: String,
     year: Number,
     trailer: String,
     numberOfReviews:Number,
     stars: Number,
-    favorite: Boolean,
+    favorite: Boolean,    
+    time:Number,
+
   },
   {
     toJSON: {

@@ -29,7 +29,13 @@ export class Movie{
     plataform:string;
     url:string
   }[];
-
+  comments!:{
+    userId:String;
+    nameUser:String;
+    rating: number;
+    comment:String;
+  }[];
+  time!:number;
   stars!: number;
   favorite!: boolean;
 

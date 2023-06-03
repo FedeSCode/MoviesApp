@@ -57,6 +57,11 @@
         <input type="text" name="trailer_id" formControlName="movieIdThariler" id="movieIdThariler" class="form-control" placeholder="Youtube Id trailer">
       </div>
 
+      <div class="form-group time">
+        <label for="time">Movie time</label>
+        <input type="text" name="time" formControlName="movieTime" id="movieTime" class="form-control" placeholder="time">
+      </div>
+
       <div class="section directors" formArrayName="movieDirectors">
         <h3>Directors</h3>
         <div *ngFor="let director of movieDirectors.controls; let i=index" [formGroupName]="i">

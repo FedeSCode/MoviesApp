@@ -18,6 +18,8 @@ export class MoviePageComponent implements OnInit {
   videoUrl!: SafeResourceUrl;
   returnUrl = '/movie';
   updateUrl = '/update/';
+  minutes!:Number;
+  duration!:String;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,13 +35,26 @@ export class MoviePageComponent implements OnInit {
 
     activatedRoute.params.subscribe((params) => {
       if (params.id)
-        movieService.getMovieByID(params.id).subscribe((serverMovie) => {
-          this.movie = serverMovie;
-          this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-            'https://www.youtube.com/embed/' + this.movie.trailer
+      movieService.getMovieByID(params.id).subscribe((serverMovie) => {
+        this.movie = serverMovie;
+        this.minutes = this.movie.time;
+        this.duration = this.minutesToHours(this.movie.time.valueOf());
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+          'https://www.youtube.com/embed/' + this.movie.trailer
           );
         });
-    });
+      });
+
+
+  }
+
+
+  minutesToHours(minutes:number){
+    const hours = Math.floor(minutes / 60);
+    console.log(hours);
+    const remainingMinutes = minutes % 60;
+    console.log(remainingMinutes);
+    return `${hours}h ${remainingMinutes}min`;
   }
 
   ngOnInit(): void {}
@@ -92,4 +107,6 @@ export class MoviePageComponent implements OnInit {
     //this.router.navigateByUrl('/movie');
 
   }
+
+
 }

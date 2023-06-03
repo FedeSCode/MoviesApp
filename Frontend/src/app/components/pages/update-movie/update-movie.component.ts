@@ -48,13 +48,14 @@ export class UpdateMovieComponent {
     );
 
     this.movieForm = this.fb.group({
-      movieTitle:'',
-      moviePlot:'',
+      movieTitle: "",
+      moviePlot:"",
       moviePoster:'',
       movieYear:'',
       movieIdThariler:'',
       movieNumberOfReviews:0,
       movieStars:0,
+      movieTime:0,
       movieDirectors: this.fb.array([this.fb.group({name:'', photo:''})]),
       movieScreenwriters: this.fb.array([this.fb.group({name:'', photo:''})]),
       movieActors: this.fb.array([this.fb.group({name:'', photo:'', role:''})]),
@@ -66,13 +67,59 @@ export class UpdateMovieComponent {
   }
 
 
-  ngOnInit(){
-    this.movieService.getMovieByID(this.movieId).subscribe((movieToUpdate)=>{
-      console.log(movieToUpdate);
-      this.movieForm.patchValue(movieToUpdate);
-    }
-    )
+
+  ngOnInit() {
+    this.movieService.getMovieByID(this.movieId).subscribe((movieToUpdate) => {
+      this.movie = movieToUpdate;
+      this.movieForm.patchValue({
+        movieTitle: movieToUpdate.title,
+        moviePlot: movieToUpdate.plot,
+        moviePoster: movieToUpdate.poster,
+        movieYear: movieToUpdate.year,
+        movieIdThariler: movieToUpdate.trailer,
+        movieNumberOfReviews: 0,
+        movieStars: movieToUpdate.stars,
+        movieTime: movieToUpdate.time,
+      });
+
+      // Pré-remplir les réalisateurs
+      this.movieDirectors.clear();
+      movieToUpdate.director.forEach((director) => {
+        this.movieDirectors.push(this.fb.group({
+          name: director.name,
+          photo: director.photo
+        }));
+      });
+
+
+    this.movieScreenwriters.clear();
+    movieToUpdate.screenwriters.forEach((screenwriter) => {
+      this.movieScreenwriters.push(this.fb.group({
+        name: screenwriter.name,
+        photo: screenwriter.photo
+      }));
+    });
+
+    this.movieActors.clear();
+    movieToUpdate.actors.forEach((actor) => {
+      this.movieActors.push(this.fb.group({
+        name: actor.name,
+        photo: actor.photo,
+        role: actor.role
+      }));
+    });
+
+    this.movieStreaming.clear();
+    movieToUpdate.streaming.forEach((stream) => {
+      this.movieStreaming.push(this.fb.group({
+        name: stream.name,
+        url: stream.url
+      }));
+    });
+  });
   }
+
+
 
 
   get fc(){
@@ -92,6 +139,7 @@ export class UpdateMovieComponent {
       poster: fv.moviePoster,
       year: fv.movieYear,
       trailer: fv.movieIdThariler,
+      time : fv.movieTime,
       numberOfReviews: fv.movieNumberOfReviews,
       stars: this.movie.stars,
       favorite: this.movie.favorite,

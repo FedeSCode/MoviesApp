@@ -13,7 +13,7 @@
     <form [formGroup]="movieForm" (ngSubmit)="submit()">
       <div class="form-group">
         <label for="movieTitle">Movie title</label>
-        <input type="text" formControlName="movieTitle" id="movieTitle" class="form-control" [placeholder]="movie.title" [value]="movie.title">
+        <input type="text" formControlName="movieTitle" id="movieTitle" class="form-control" [placeholder]="movie.title" >
       </div>
 
       <div class="form-group plot">
@@ -35,6 +35,11 @@
       <div class="form-group trailer">
         <label for="trailer_id">Id trailer</label>
         <input type="text" name="trailer_id" formControlName="movieIdThariler" id="movieIdThariler" class="form-control" placeholder="Youtube Id trailer">
+      </div>
+
+      <div class="form-group time">
+        <label for="time">Movi time</label>
+        <input type="text" name="time" formControlName="movieTime" id="movieTime" class="form-control" placeholder="time">
       </div>
 
       <div class="section directors" formArrayName="movieDirectors">

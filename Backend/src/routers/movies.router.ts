@@ -58,13 +58,15 @@ router.post('/addMovie', async (req, res) => {
       poster: movieData.poster,
       year: movieData.year,
       trailer: movieData.trailer,
+      time:movieData.time,
       numberOfReviews: movieData.numberOfReviews,
       stars: movieData.stars,
       favorite: false,
       director: movieData.director,
       screenwriters: movieData.screenwriters,
       actors: movieData.actors,
-      streaming: movieData.streaming
+      streaming: movieData.streaming,
+      comments:movieData.comments
     });
 
     // Enregistrer le nouveau film dans la base de données
@@ -75,12 +77,49 @@ router.post('/addMovie', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-
+/*
 router.patch("/update/:id", asyncHandler(
   async(req, res) =>{
+    const movieId = req.params.id;
+    const updatedMovie = req.body;
 
+    try{
+      const movie = await MovieModel.findByIdAndUpdate(movieId, updatedMovie);
+
+      if(!movie){
+        return res.status(404).json({message: "Movie not found"});
+      }
+      await movie.save();
+      res.status(200).json({message:"Film mis a jour", movie: movie});
+    }catch(error){
+      console.log(error);
+      res.status(500).json({message:"Une error lors de la missse a jour du film"});
+    }
   }
-));
+));*/
+
+router.patch("/update/:id", async (req, res) => {
+  const movieId = req.params.id;
+  const updatedMovie = req.body;
+
+  try {
+    const movie = await MovieModel.findByIdAndUpdate(movieId, updatedMovie, { new: true });
+
+    if (!movie) {
+      return res.status(404).json({ message: "Film introuvable" });
+    }
+
+    res.status(200).json({ message: "Film mis à jour avec succès", movie: movie });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Une erreur est survenue lors de la mise à jour du film" });
+  }
+
+  return; 
+});
+
+
+
 
 
 router.delete("/remove/:id", asyncHandler(
