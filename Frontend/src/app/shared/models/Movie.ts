@@ -33,10 +33,10 @@ export class Movie{
     url:string
   }[];
   comments!:{
-    userId:String;
-    nameUser:String;
-    rating: number;
-    comment:String;
+    userId:string;
+    nameUser:string;
+    rating:number;
+    comment:string;
   }[];
 
 }

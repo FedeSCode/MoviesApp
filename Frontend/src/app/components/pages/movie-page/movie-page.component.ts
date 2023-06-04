@@ -24,12 +24,14 @@ export class MoviePageComponent implements OnInit {
   duration!:String;
 
   numberOfRatings = 0;
+  movieId!: string;
 
-  movieId!: String;
+  /*form*/
 
-  isSubmitted= false;
-  commentForm: FormGroup;
-
+  userId='';
+  nameUser='';
+  comment='';
+  rating='';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,7 +39,6 @@ export class MoviePageComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private userService: UserService,
     private router: Router,
-    private fb: FormBuilder,
 
   ) {
     userService.userObservable.subscribe((newUser) => {
@@ -48,6 +49,7 @@ export class MoviePageComponent implements OnInit {
     activatedRoute.params.subscribe((params) => {
       if (params.id)
       this.movieId= params.id;
+      console.log(this.movieId);
       movieService.getMovieByID(params.id).subscribe((serverMovie) => {
         this.movie = serverMovie;
         console.log(this.movie.id);
@@ -59,17 +61,6 @@ export class MoviePageComponent implements OnInit {
           );
         });
       });
-
-      this.commentForm = this.fb.group({
-        idMovie:this.movieId,
-        userId:this.user.id,
-        nameUser:this.user.name,
-        rating:'',
-        comment:''
-      });
-
-
-
   }
   ngOnInit(): void {}
 
@@ -129,40 +120,4 @@ export class MoviePageComponent implements OnInit {
 
   }
 
-
-  /*comments */
-
-  onStarClick(event: Event) {
-    event.stopPropagation();
-  }
-
-  get fc(){
-    return this.commentForm.controls;
-  }
-
-  submit() {
-
-    this.isSubmitted = true;
-    if (this.commentForm.invalid) return;
-    const fv = this.commentForm.value;
-
-    const comment: IComment = {
-      idMovie: fv.idMovie,
-      userId: fv.userId,
-      nameUser: fv.nameUser,
-      rating: fv.rating,
-      comment: fv.comment
-    };
-    console.log(`here:`, this.commentForm.value);
-    console.log(`New commnet:`,comment)
-    this.movieService.addCommentToDb(comment).subscribe(_ => {
-      this.router.navigateByUrl(this.returnUrl);
-    });
-
-
-
-
-
-
-  }
 }

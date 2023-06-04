@@ -117,52 +117,20 @@
 
     </section>
 
-
     <section class="comments">
       <div class="commentsBox">
-        <h2 class="comment_title">Comments:</h2>
-
-
-
-
-
         <ul *ngFor="let comment of movie.comments">
-          <li>
-            <div class="comment">
-              <div class="cLeft"></div>
-
-              <div class="cRight">
-                <h3>{{comment.nameUser}}</h3>
-                <star-rating class="commet_rating" [valueOfStars]="comment.rating" icon="★"
-                  (click)="onStarClick($event)">
-                </star-rating>
-                <p>{{comment.comment}}</p>
-              </div>
-            </div>
-
+          <li style="list-style-type: none">
+            <app-comments nameUser="{{comment.nameUser}}" comment="{{comment.comment}}" [rating]="comment.rating">
+            </app-comments>
           </li>
         </ul>
 
-        <div class="content " *ngIf="isAuth">
-          <form [formGroup]="commentForm" (ngSubmit)="submit()">
-            <div class="form-group ">
-              <!-- <label for="comment">Comment:</label> -->
-              <textarea type="text" formControlName="comment" id="comment" class="form-control"
-                placeholder="Ajoutez un commentaire..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <!-- <label for="rating">Rating:</label> -->
-              <input formControlName="rating" id="rating" class="form-control" name="rating"
-                placeholder="Rate">
-            </div>
-          </form>
-          <default-button type="button" text="comment!!" (click)="submit()"></default-button>
+        <div class="commnetForm" *ngIf="isAuth">
+          <comment-form></comment-form>
         </div>
-
       </div>
+
     </section>
-
-
   </div>
 </div>

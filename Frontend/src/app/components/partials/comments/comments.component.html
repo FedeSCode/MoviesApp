@@ -1,3 +1,18 @@
 <div class="container">
-
+  <div class="commentsBox">
+    <ul>
+      <li style="list-style-type: none">
+        <div class="comment">
+          <div class="cLeft"></div>
+          <div class="cRight">
+            <h3>{{nameUser}}</h3>
+            <star-rating class="commet_rating" [valueOfStars]="rating" icon="★"
+              (click)="onStarClick($event)">
+            </star-rating>
+            <p>{{comment}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -40,6 +40,7 @@ import { MoviesTimeComponent } from './components/partials/movies-time/movies-ti
 import { MoviesWatchedComponent } from './components/partials/movies-watched/movies-watched.component';
 import { MoviesWatchedByUserComponent } from './components/pages/movies-watched-by-user/movies-watched-by-user.component';
 import { CommentsComponent } from './components/partials/comments/comments.component';
+import { CommentFormComponent } from './components/partials/comment-form/comment-form.component';
 
 
 
@@ -79,6 +80,8 @@ import { CommentsComponent } from './components/partials/comments/comments.compo
     MoviesWatchedComponent,
     MoviesWatchedByUserComponent,
     CommentsComponent,
+    CommentFormComponent,
+
   ],
   imports: [
     BrowserModule,

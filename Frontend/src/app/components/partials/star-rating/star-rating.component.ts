@@ -23,6 +23,6 @@ export class StarRatingComponent {
   }
 
   isStarFilled(index: number): boolean {
-    return index <= this.valueOfStars;
+    return index <=  this.valueOfStars;
   }
 }
