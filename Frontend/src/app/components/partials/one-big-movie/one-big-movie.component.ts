@@ -38,10 +38,10 @@ export class OneBigMovieComponent {
   }
 
   getTrailerId(trailer:string):SafeResourceUrl{
-    console.log(trailer);
+    //console.log(trailer);
     this.movieTrailer = trailer;
     const videoUrl = 'https://www.youtube.com/embed/' + trailer;
-    console.log(videoUrl)
+    //console.log(videoUrl)
     return this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
   }
 

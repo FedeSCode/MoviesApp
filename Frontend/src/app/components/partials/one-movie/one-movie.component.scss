@@ -42,6 +42,7 @@ li a .movie__poster img:hover{
 
 
 .container_fav_stars{
+  margin-left: -0.5rem;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -60,17 +61,11 @@ li a .movie__poster img:hover{
   z-index: 1;
 }
 
-.stars{
-  position: relative;
-  padding: 0;
-  margin: 0;
-  color: var(--color-not-heart-not-fav);
-}
-
 .name{
   font-size: 20px;
   color: var(--color-txt);
   font-family: var(--font-cards);
+  text-align: center;
 }
 
 .fake_fav_button{

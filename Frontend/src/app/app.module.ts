@@ -36,6 +36,10 @@ import { FavButtonComponent } from './components/partials/fav-button/fav-button.
 import { MyListComponent } from './components/pages/my-list/my-list.component';
 import { MyListButtonComponent } from './components/partials/my-list-button/my-list-button.component';
 import { OneBigMovieComponent } from './components/partials/one-big-movie/one-big-movie.component';
+import { MoviesTimeComponent } from './components/partials/movies-time/movies-time.component';
+import { MoviesWatchedComponent } from './components/partials/movies-watched/movies-watched.component';
+import { MoviesWatchedByUserComponent } from './components/pages/movies-watched-by-user/movies-watched-by-user.component';
+import { CommentsComponent } from './components/partials/comments/comments.component';
 
 
 
@@ -71,6 +75,10 @@ import { OneBigMovieComponent } from './components/partials/one-big-movie/one-bi
     MyListComponent,
     MyListButtonComponent,
     OneBigMovieComponent,
+    MoviesTimeComponent,
+    MoviesWatchedComponent,
+    MoviesWatchedByUserComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

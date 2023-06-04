@@ -77,6 +77,35 @@ router.post('/addMovie', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+router.post('/addComment', async (req, res) => {
+  try {
+    const commentData = req.body;
+    console.log('commentData.comment:', commentData.comment);
+
+    const movie = await MovieModel.findById(commentData.idMovie);
+    if (!movie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    movie.comments.push({
+      userId: commentData.userId,
+      nameUser: commentData.nameUser,
+      rating: commentData.rating,
+      comment: commentData.comment
+    });
+    
+    console.log('-----------------> ',movie.comments);
+    await movie.save();
+
+    res.status(200).json({ message: "Comment added successfully" });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 /*
 router.patch("/update/:id", asyncHandler(
   async(req, res) =>{

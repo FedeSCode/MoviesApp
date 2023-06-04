@@ -24,10 +24,13 @@
           <a routerLink="login">Login</a>
         </li>
         <li class="menu-container">
-          <a class="profil" routerLink="/profile" *ngIf="isAuth">{{user.name}}<span>▼</span></a>
+          <a  *ngIf="isAuth">{{user.name}}<span>▼</span></a>
           <div class="menu">
             <li routerLinkActive="active" *ngIf="isAdmin">
-              <a routerLink="addMovie">AddMovie</a>
+              <a routerLink="profile">Profile</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="isAdmin">
+              <a routerLink="addMovie">Add Movie</a>
             </li>
             <li routerLinkActive="active" *ngIf="isAuth">
               <a routerLink="favorits">Favorits</a>

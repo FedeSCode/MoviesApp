@@ -1,10 +1,12 @@
 div{
+  display: flex;
   margin: 1rem;
   text-align: center;
-  width: 40rem;
+  width: 50vw;
   border-radius: 5px;
-
+  justify-content: center;
 }
+
 form{
   display: inline;
   width: 30rem;
@@ -29,7 +31,6 @@ input{
   font-size: 18px;
 
 }
-
 
 span{
   background-color: var(--color-white);
@@ -59,7 +60,6 @@ button{
   transform: translateX(-3rem);
   margin-top: 2px;
   border: none;
-
 }
 
 button:hover{

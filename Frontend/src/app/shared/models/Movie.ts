@@ -2,6 +2,15 @@ export class Movie{
   id!: number;
   title!: string;
 
+  plot!: string;
+  poster!: string;
+  year!: number;
+  trailer!: string;
+  numberOfReviews!: number;
+  time!:number;
+  stars!: number;
+  favorite!: boolean;
+
   director!: {
     photo: string;
     name: string;
@@ -18,12 +27,6 @@ export class Movie{
     role: string;
   }[];
 
-  plot!: string;
-  poster!: string;
-  year!: number;
-  trailer!: string;
-  reviews!: string;
-
   streaming!: {
     name:string;
     plataform:string;
@@ -35,8 +38,5 @@ export class Movie{
     rating: number;
     comment:String;
   }[];
-  time!:number;
-  stars!: number;
-  favorite!: boolean;
 
 }

@@ -1,9 +1,9 @@
 <div class="container">
     <div class="favorite remove" *ngIf="isFavorite">
-      <button  (click)="removeFromFavoritsAnyTime()">❤</button>
+      <button  (click)="removeFromFavoritsAnyTime();removed()">❤</button>
     </div>
     <div class="favorite add" *ngIf="!isFavorite">
       <!--<button type="button" [ngStyle]="{ color: 'white'}" (click)="addToFavoritsAnyTime()">❤</button>-->
-      <button  type="button" (click)="addToFavoritsAnyTime()">❤</button>
+      <button  type="button" (click)="addToFavoritsAnyTime();added()">❤</button>
     </div>
 </div>

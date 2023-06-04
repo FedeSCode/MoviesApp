@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MovieService } from 'src/app/services/movie.service';
-import { Movie } from 'src/app/shared/models/Movie';
+
 
 @Component({
   selector: 'star-rating',
@@ -12,6 +10,9 @@ export class StarRatingComponent {
   @Input() maxRating = 5;
   @Input() valueOfStars!: number;
   @Input() icon = '★';
+  @Input() numberOfRatings=20;
+
+  @Input() justifyContent: 'left' | 'right' | 'center' = 'center';
 
   maxRatingArr: number[] = [];
 

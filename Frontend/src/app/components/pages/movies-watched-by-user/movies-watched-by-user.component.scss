@@ -1,0 +1,18 @@
+.container{
+  margin-top: 8vw;
+  color: aliceblue;
+}
+app-title{
+  text-align: center;
+  // font-family: var(--font-cards);
+}
+.user_profile_name{
+  margin-top: 5vw;
+  justify-content: center;
+}
+
+.profile_resume{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

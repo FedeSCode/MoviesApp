@@ -10,6 +10,11 @@ import { User } from 'src/app/shared/models/User';
   styleUrls: ['./my-list-button.component.scss']
 })
 export class MyListButtonComponent {
+
+  check='✔';
+  // plus='⊕';
+  plus='＋';
+
   @Input()
   id!: string;
 
@@ -45,7 +50,6 @@ export class MyListButtonComponent {
         this.user = serverUser;
       });
     }
-    this.router.navigateByUrl('/movie');
   }
 
   removeFromMyListAnyTime() {
@@ -58,7 +62,6 @@ export class MyListButtonComponent {
           this.user = serverUser;
         });
       }
-      this.router.navigateByUrl('/movie');
   }
 
   /*is fav*/
@@ -85,6 +88,14 @@ export class MyListButtonComponent {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  async removed(){
+    this.isFavorite = false;
+  }
+
+  async added() {
+    this.isFavorite = true;
   }
 
 }

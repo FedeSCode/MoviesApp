@@ -12,6 +12,7 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { UpdateMovieComponent } from './components/pages/update-movie/update-movie.component';
 import { MyListComponent } from './components/pages/my-list/my-list.component';
+import { MoviesWatchedByUserComponent } from './components/pages/movies-watched-by-user/movies-watched-by-user.component';
 
 const routes: Routes = [
   /*nav pages*/
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'movie/:id', component: MoviePageComponent},
   { path: 'addMovie', component: AddMovieComponent},
   { path: 'update/:id', component:UpdateMovieComponent},
+  { path: 'moviesWatched', component: MoviesWatchedByUserComponent},
 
   /*login*/
   { path: 'login', component: LoginPageComponent},

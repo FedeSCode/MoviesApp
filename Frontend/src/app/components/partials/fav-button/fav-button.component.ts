@@ -61,8 +61,6 @@ export class FavButtonComponent {
       this.userService.addToFavorite(addFav).subscribe((serverUser) => {
         this.user = serverUser;
       });
-      this.router.navigateByUrl('/movie/'+this.id);
-
     }
 
     // }
@@ -78,8 +76,6 @@ export class FavButtonComponent {
         this.userService.removeFromFavorite(addFav).subscribe((serverUser) => {
           this.user = serverUser;
         });
-        this.router.navigateByUrl('/movie/'+this.id);
-
       }
   }
 
@@ -107,5 +103,13 @@ export class FavButtonComponent {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  async removed(){
+    this.isFavorite = false;
+  }
+
+  async added() {
+    this.isFavorite = true;
   }
 }

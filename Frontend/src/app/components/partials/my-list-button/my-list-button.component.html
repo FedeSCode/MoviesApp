@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="mylist remove" *ngIf="isFavorite">
-    <button  (click)="removeFromMyListAnyTime()">-</button>
+  <div class="mylist remove button_txt" *ngIf="isFavorite">
+    <button  (click)="removeFromMyListAnyTime();removed()">{{check}}</button>
   </div>
   <div class="mylist add" *ngIf="!isFavorite">
-    <button type="button"  (click)="addMyListAnyTime()">+</button>
+    <button class="button_txt" type="button"  (click)="addMyListAnyTime();added()">{{plus}}</button>
   </div>
 </div>

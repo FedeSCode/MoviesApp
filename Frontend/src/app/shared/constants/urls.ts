@@ -13,6 +13,9 @@ export const MOVIES_ADD_MOVIE_URL =  MOVIES_URL + '/addMovie';
 export const MOVIES_UPDATE_MOVIE_BY_ID_URL =  MOVIES_URL + '/update/';
 export const MOVIES_REMOVE_MOVIE_BY_ID_URL =  MOVIES_URL + '/remove/';
 
+export const COMMENT_ADD_COMMENT_URL =  MOVIES_URL + '/addComment';
+
+
 
 
 /*User */

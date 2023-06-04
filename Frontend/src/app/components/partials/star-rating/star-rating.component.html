@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="star-rating" [class.green-stars]="valueOfStars === 5">
+  <div class="star-rating" [ngStyle]="{ 'justify-content': justifyContent }" [class.green-stars]="valueOfStars === 5">
     <ng-container *ngFor="let rating of maxRatingArr; let i = index">
       <input type="radio" name="rate" [id]="'rate-' + (maxRating - i)" [checked]="valueOfStars === (maxRating - i)">
       <label [for]="'rate-' + (maxRating - i)" [class.filled]="isStarFilled(maxRating - i)">{{icon}}</label>

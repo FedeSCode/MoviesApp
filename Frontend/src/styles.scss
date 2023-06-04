@@ -1,5 +1,10 @@
 //@import '~bootstrap/dist/css/bootstrap.min.css';
-
+*{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: type-of($value: text);
+  user-select: none;
+}
 :root{
   --color-main:#181818;
   --color-second:#121212;
@@ -22,6 +27,8 @@
   --color-star-ok:orange;
   --color-star-not-ok:gray;
 
+  /*color buton fav & my list*/
+  --color-button-hover:#808080;
 
   /*info-movie*/
   --color-info-separator:#03ced5;
@@ -37,6 +44,13 @@
 
   /*font*/
   --font-cards: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /*--no-selection: {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }*/
 
 }
 

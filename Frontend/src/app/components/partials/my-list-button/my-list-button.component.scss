@@ -17,23 +17,36 @@ button{
   border-radius: 50%;
   text-align: center;
   opacity: 0.8;
-  transform: scale(1.8);
+  cursor: pointer;
   color: var(--color-txt);
 }
 
+
 button:hover{
-  color: red;
-  transform: scale(2.0);
+  background-color:var(--color-button-hover);
+  color: var(--color-logo-second);
+  padding: auto;
+  transform: scale(1);
   transition: 40ms ease-in-out;
   opacity: 1;
 }
 
 button:active{
   transform: scale(0.9);
-  //background-color: transparent;
   background-color: var(--color-logo-second);
   color: red;
   transition: 20ms ease-in;
 }
 
-
+.div{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div{
+-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+user-select: none;
+}

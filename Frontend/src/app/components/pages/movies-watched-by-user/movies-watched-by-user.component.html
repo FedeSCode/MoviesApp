@@ -1,0 +1,26 @@
+<div class="container">
+  <app-title title="Movies Watched by {{user.name}}"></app-title>
+
+  <div class="user_profile_name">
+    <div class="profile_resume">
+      <div class="counter">
+        <movies-time [minutes]="minutes"></movies-time>
+      </div>
+
+      <div class="resume">
+        <movies-watched [counter]="filmsRegardes"></movies-watched>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="moviesWatched">
+
+    <one-movie>
+
+    </one-movie>
+
+
+  </div>
+
+</div>

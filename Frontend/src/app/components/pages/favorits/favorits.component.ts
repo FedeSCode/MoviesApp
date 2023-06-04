@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 import { Observable, forkJoin } from 'rxjs';
-import { toArray } from 'rxjs/operators';
 import { MovieService } from 'src/app/services/movie.service';
 import { UserService } from 'src/app/services/user.service';
 import { Favorite } from 'src/app/shared/models/Favorits';
@@ -51,7 +49,6 @@ export class FavoritsComponent {
   ngOnInit():void {
 
   }
-
 
   /*async getIdMovieFavorite(): Promise<string[]>{
     if (this.user.favorite) {

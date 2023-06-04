@@ -8,6 +8,7 @@ import { IMovieAdd } from '../shared/interfaces/IMovieAdd';
 import { ToastrService } from 'ngx-toastr';
 
 import {
+  COMMENT_ADD_COMMENT_URL,
   MOVIES_ADD_MOVIE_URL,
   MOVIES_BY_ID_URL,
   MOVIES_BY_SEARCH_URL,
@@ -15,6 +16,7 @@ import {
   MOVIES_UPDATE_MOVIE_BY_ID_URL,
   MOVIES_URL,
 } from '../shared/constants/urls';
+import { IComment } from '../shared/interfaces/IComment';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +53,7 @@ export class MovieService {
             )
           },
           error: (errorResponse) =>{
-            this.toastrService.error(errorResponse.error,'Register Failed')
+            this.toastrService.error('Register Failed')
           }
         })
       );
@@ -65,6 +67,23 @@ export class MovieService {
   updateMovie(movieId:string, movie:IMovieAdd){
     console.log('Movie service: movieId ', movieId, 'update: ',movie);
     return this.http.patch<Movie>(MOVIES_UPDATE_MOVIE_BY_ID_URL+movieId,movie);
+  }
+
+  addCommentToDb(addComment:IComment){
+    console.log(addComment);
+    return this.http.post<IComment>(COMMENT_ADD_COMMENT_URL, addComment).pipe(
+      tap({
+        next: (comment)=>{
+          this.toastrService.success(
+            `Last ${comment.nameUser} comment add to DB !!!`,
+            'Succesfull !!'
+          )
+        },
+        error: (errorResponse) =>{
+          this.toastrService.error('Register Failed')
+        }
+      })
+    );
   }
 
 }

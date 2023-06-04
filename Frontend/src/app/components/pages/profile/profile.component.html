@@ -10,19 +10,14 @@
 
       <div class="profile_resume">
 
-        <div class="counter">
-          <h3>TEMPS PASSE A REGARDER DES FILMS</h3>
-          <div class="counter_item">
-            00 00 00
-          </div>
+        <div>
+          <movies-time [minutes]="minutes"></movies-time>
         </div>
 
-        <div class="resume">
-          <h3>FILMS REGARDES </h3>
-          <div class="counter_item">
-            <p>0</p>
-          </div>
+        <div >
+          <movies-watched  [counter]="filmsRegardes"></movies-watched>
         </div>
+
       </div>
     </div>
   </div>

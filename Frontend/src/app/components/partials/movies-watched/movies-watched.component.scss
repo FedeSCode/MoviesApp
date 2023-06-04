@@ -1,0 +1,32 @@
+.container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+.resume{
+  padding: 0.5rem;
+  margin-left:5vw;
+  width: auto;
+  background-color: var(--color-second);
+  color: var(--color-text-profile-second);
+  font-size: 1.2rem;
+  border-radius: 20px;
+  text-align: center;
+}
+.resume p{
+  transform: scale(2.1);
+}
+.resume:hover{
+  color: var(--color-txt);
+  transition: 1000ms ease-in-out;
+  transform: scale(1.2);
+}
+
+/*no selection*/
+div {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

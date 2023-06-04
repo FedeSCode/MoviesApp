@@ -1,6 +1,6 @@
 <div class="container">
   <div class="details">
-   <section class="main">
+    <section class="main">
       <img class="bgImg" [src]="movie.poster">
       <div class="main_movie_info">
         <div class="poster">
@@ -18,15 +18,22 @@
           <div class="movie_info">
             <h1>{{movie.title}}
               <div class="fav_list_buttons">
-                <fav-button class="fav_button"  id="{{movie.id}}"></fav-button>
+                <fav-button class="fav_button" id="{{movie.id}}"></fav-button>
                 <my-list-button class="myList_button" id="{{movie.id}}"></my-list-button>
               </div>
             </h1>
             <!--<div *ngIf="isAuth">
               <default-button class="addFav" type="button" text="addToFav" (onClick)="addToFavorits()"></default-button>
             </div>-->
-            <star-rating [valueOfStars]="movie.stars" icon="★">
-            </star-rating>
+            <div class="rating">
+              <star-rating [valueOfStars]="movie.stars" icon="★">
+              </star-rating>
+              <div class="rating_box tooltip">
+                <span class="tooltipText">Number of ratings!!</span>
+                <span class="numberOfRatings">{{numberOfRatings}}</span>
+              </div>
+
+            </div>
             <p>Sorti en France en {{movie.year}}</p>
             <!--<p>Durée : {{movie.time}} min</p>-->
             <p>Durée : {{duration}}</p>
@@ -112,14 +119,48 @@
 
 
     <section class="comments">
-      <h2>Comentaires:</h2>
+      <div class="commentsBox">
+        <h2 class="comment_title">Comments:</h2>
 
 
-      <ul>
-        <li *ngFor="let comment of movie.comments">
-          Comentaires
-        </li>
-      </ul>
+
+
+
+        <ul *ngFor="let comment of movie.comments">
+          <li>
+            <div class="comment">
+              <div class="cLeft"></div>
+
+              <div class="cRight">
+                <h3>{{comment.nameUser}}</h3>
+                <star-rating class="commet_rating" [valueOfStars]="comment.rating" icon="★"
+                  (click)="onStarClick($event)">
+                </star-rating>
+                <p>{{comment.comment}}</p>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+
+        <div class="content " *ngIf="isAuth">
+          <form [formGroup]="commentForm" (ngSubmit)="submit()">
+            <div class="form-group ">
+              <!-- <label for="comment">Comment:</label> -->
+              <textarea type="text" formControlName="comment" id="comment" class="form-control"
+                placeholder="Ajoutez un commentaire..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <!-- <label for="rating">Rating:</label> -->
+              <input formControlName="rating" id="rating" class="form-control" name="rating"
+                placeholder="Rate">
+            </div>
+          </form>
+          <default-button type="button" text="comment!!" (click)="submit()"></default-button>
+        </div>
+
+      </div>
     </section>
 
 

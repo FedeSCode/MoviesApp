@@ -10,6 +10,8 @@ import { User } from 'src/app/shared/models/User';
 export class ProfileComponent {
 
   user!: User;
+  minutes= 0;
+  filmsRegardes=0;
 
   constructor(private userService: UserService) {
     userService.userObservable.subscribe((newUser) => {
