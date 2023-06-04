@@ -1,6 +1,4 @@
 /*******Comments*******/
-
-
 .comment{
   background-color: #e4d7d7;
   border-radius: 15px;
@@ -13,7 +11,6 @@
   width: 9rem;
   margin: 0;
   position: relative;
-  background-color: red;
 }
 
 
@@ -22,8 +19,8 @@
   height: auto;
   display: flex;
   justify-content: center;
-}
 
+}
 
 textarea{
   margin: 0 15%;
@@ -35,14 +32,48 @@ textarea{
   text-align: center;
   font-size: 1.5rem;
 }
-label{
-  color: var(--color-txt);
-  font-size: 2.5rem;
+
+/*start*/
+.formStars{
+  display: grid;
+  justify-content: center;
+  place-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-input{
-  margin: 0 8%;
-  width: 6rem;
-  color: var(--color-txt-dark);
-  font-size: 2rem;
-  border-radius: 1rem;
+
+.starsContainer{
+  position: relative;
+  width: fit-content;
+  border-radius: 5px;
+  margin-top: -1vw;
+  padding: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.starsContainer .star-widget input{
+  display: none;
+}
+.star-widget label{
+  font-size: 40px;
+  color:var(--color-star-not-ok);
+  padding: 2px;
+  float: right;
+  transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+  color: var(--color-star-ok)
+}
+input:checked ~ label{
+  color: var(--color-star-ok);
+}
+input#rating-5:checked ~ label{
+  color: var(--color-logo-second);
+  text-shadow: 0 0 20px #952;
 }

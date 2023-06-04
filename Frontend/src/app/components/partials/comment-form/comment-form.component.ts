@@ -13,9 +13,13 @@ import { User } from 'src/app/shared/models/User';
 })
 export class CommentFormComponent {
 
+  icon='★';
+
   idMovie!:String;
 
   user!: User;
+
+  ratingvalue='';
 
   isSubmitted= false;
   commentForm: FormGroup;
@@ -78,6 +82,8 @@ export class CommentFormComponent {
   onStarClick(event: Event) {
     event.stopPropagation();
   }
+
+
 
   get isAuth(){
     /*console.log(this.user.token);*/

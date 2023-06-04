@@ -1,13 +1,27 @@
 <div class="container">
   <form [formGroup]="commentForm" (ngSubmit)="submit()">
+    <div class="form-group formStars">
+      <div class="starsContainer">
+        <div class="star-widget">
+          <input formControlName="rating" type="radio" name="rating" id="rating-5" value="5">
+          <label for="rating-5">{{icon}}</label>
+          <input formControlName="rating" type="radio" name="rating" id="rating-4" value="4">
+          <label for="rating-4">{{icon}}</label>
+          <input formControlName="rating" type="radio" name="rating" id="rating-3" value="3">
+          <label for="rating-3">{{icon}}</label>
+          <input formControlName="rating" type="radio" name="rating" id="rating-2" value="2">
+          <label for="rating-2">{{icon}}</label>
+          <input formControlName="rating" type="radio" name="rating" id="rating-1" value="1">
+          <label for="rating-1">{{icon}}</label>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group ">
       <textarea type="text" formControlName="comment" id="comment" class="form-control"
         placeholder="Ajoutez un commentaire..."></textarea>
     </div>
-    <div class="form-group">
-      <input formControlName="rating" id="rating" class="form-control" name="rating"
-        placeholder="Rate">
-    </div>
+
   </form>
   <default-button type="button" text="comment!!" (click)="submit()"></default-button>
 </div>

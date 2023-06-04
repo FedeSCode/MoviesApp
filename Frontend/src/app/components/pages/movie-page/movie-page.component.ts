@@ -26,13 +26,6 @@ export class MoviePageComponent implements OnInit {
   numberOfRatings = 0;
   movieId!: string;
 
-  /*form*/
-
-  userId='';
-  nameUser='';
-  comment='';
-  rating='';
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private movieService: MovieService,
@@ -43,7 +36,6 @@ export class MoviePageComponent implements OnInit {
   ) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
-      //console.log(this.user.id);
     });
 
     activatedRoute.params.subscribe((params) => {
@@ -76,7 +68,6 @@ export class MoviePageComponent implements OnInit {
   }
 
   get isAuth(){
-    /*console.log(this.user.token);*/
     return this.user.token;
   }
 

@@ -70,17 +70,17 @@ export class MovieService {
   }
 
   addCommentToDb(addComment:IComment){
-    console.log(addComment);
+    // console.log(addComment);
     return this.http.post<IComment>(COMMENT_ADD_COMMENT_URL, addComment).pipe(
       tap({
         next: (comment)=>{
           this.toastrService.success(
-            `Last ${comment.nameUser} comment add to DB !!!`,
+            `Comment add to DB !!!`,
             'Succesfull !!'
           )
         },
         error: (errorResponse) =>{
-          this.toastrService.error('Register Failed')
+          this.toastrService.error('Comment not posted')
         }
       })
     );
