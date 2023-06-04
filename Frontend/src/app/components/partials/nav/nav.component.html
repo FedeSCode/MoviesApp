@@ -19,15 +19,14 @@
           <a routerLink="about">About</a>
         </li>
 
-
         <li routerLinkActive="active" *ngIf="!isAuth">
           <a routerLink="login">Login</a>
         </li>
-        <li class="menu-container">
-          <a  *ngIf="isAuth">{{user.name}}<span>▼</span></a>
+        <li class="menu-container" *ngIf="isAuth">
+          <a>Menu<span>▼</span></a>
           <div class="menu">
-            <li routerLinkActive="active" *ngIf="isAdmin">
-              <a routerLink="profile">Profile</a>
+            <li routerLinkActive="active" *ngIf="isAuth">
+              <a routerLink="profile">{{user.name}}</a>
             </li>
             <li routerLinkActive="active" *ngIf="isAdmin">
               <a routerLink="addMovie">Add Movie</a>

@@ -38,15 +38,21 @@ ul a:hover{
   color: var(--color-txt-nav-hover);
   transition: ease-in-out 500ms;
   opacity: 0.5;
+  border-radius: 5px;
   cursor: pointer;
+  transform: scale(1.2);
+}
 
+ul a:active{
+  transform: scale(1);
+  border-radius: 10px;
 }
 
 a{
   margin: 0;
   color: var(--color-txt);
   font-size: 20px;
-  border-radius: 20px;
+  border-radius: 50px;
 }
 
 .menu-container{
@@ -55,6 +61,7 @@ a{
 
 .menu-container span{
   font-size: 1rem;
+
 }
 
 .menu-container span:hover{
@@ -62,6 +69,7 @@ a{
 }
 
 .menu{
+  right: 1vw;
   display: none;
   position:absolute;
   z-index:1;
@@ -78,16 +86,19 @@ a{
 
 .menu-container:hover .menu{
   display: block;
+  overflow: hidden;
 }
 
 .menu a{
   width: 100%;
   min-width:8rem;
+
 }
 
 .menu a:hover , .profil:hover{
   color: var(--color-black);
   background-color: var(--color-logo-second);
+  border-radius: 0;
   transition: ease-in-out 500ms;
 }
 
