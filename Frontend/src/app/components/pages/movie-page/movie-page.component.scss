@@ -8,14 +8,39 @@
   padding-bottom: 5%;
 }
 
+.admin{
+  margin: 0 40%;
+  padding-left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  z-index: 1;
+  height: fit-content;
+}
+
+.admin default-button{
+  margin: 0 4%;
+}
+
 .main{
-  margin-top: 3vw;
+  margin-top: 1vw;
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
   overflow: hidden;
+}
+.mainContent{
+  margin-top: 9vw;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+
 }
 
 .main_movie_info{
@@ -76,10 +101,10 @@
   visibility: hidden;
 }
 
-.main .bgImg{
+.bgImg{
   position: absolute;
   width: 100%;
-  height: 53rem;
+  height: 51rem;
   opacity: 0.2;
 }
 
@@ -121,20 +146,7 @@ iframe {
   overflow: hidden;
 }
 
-.admin{
-  margin: 3% 40%;
-  padding-left: 0;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 20%;
-  z-index: 1;
-  height: fit-content;
-}
 
-.admin default-button{
-  margin: 0 4%;
-}
 
 ul li{
   list-style: none;

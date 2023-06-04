@@ -6,40 +6,42 @@
         <default-button type="button" text="Update" (onClick)="updateMovie()"></default-button>
       </div>
       <img class="bgImg" [src]="movie.poster">
-      <div class="main_movie_info">
-        <div class="poster">
-          <img class="movie__poster" [src]="movie.poster" [alt]="movie.title">
-        </div>
-
-        <div class="main_movie_info_col">
-          <div class="trailer">
-            <iframe [src]="videoUrl" title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <div class="mainContent">
+        <div class="main_movie_info">
+          <div class="poster">
+            <img class="movie__poster" [src]="movie.poster" [alt]="movie.title">
           </div>
 
-          <div class="movie_info">
-            <div class="fav_list_buttons">
-              <fav-button class="fav_button" id="{{movie.id}}"></fav-button>
-              <my-list-button class="myList_button" id="{{movie.id}}"></my-list-button>
-            <div class="rating">
-              <star-rating [valueOfStars]="movie.stars" icon="★">
-              </star-rating>
-              <div class="rating_box tooltip">
-                <span class="numberOfRatings">{{numberOfRatings}}</span>
+          <div class="main_movie_info_col">
+            <div class="trailer">
+              <iframe [src]="videoUrl" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="movie_info">
+              <div class="fav_list_buttons">
+                <fav-button class="fav_button" id="{{movie.id}}"></fav-button>
+                <my-list-button class="myList_button" id="{{movie.id}}"></my-list-button>
+                <div class="rating">
+                  <star-rating [valueOfStars]="movie.stars" icon="★">
+                  </star-rating>
+                  <div class="rating_box tooltip">
+                    <span class="numberOfRatings">{{numberOfRatings}}</span>
+                  </div>
+                </div>
               </div>
+
+              <div class="movie_txt">
+                <h1>{{movie.title}}</h1>
+                <p>Sorti en France en {{movie.year}}</p>
+                <p>Durée : {{duration}}</p>
+              </div>
+
+
             </div>
-          </div>
-
-            <div class="movie_txt">
-              <h1>{{movie.title}}</h1>
-              <p>Sorti en France en {{movie.year}}</p>
-              <p>Durée : {{duration}}</p>
-            </div>
-
 
           </div>
-
         </div>
       </div>
     </section>
