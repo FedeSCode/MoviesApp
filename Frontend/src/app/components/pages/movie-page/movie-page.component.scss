@@ -12,8 +12,6 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
   justify-items: center;
   margin-bottom: 10%;
   overflow: hidden;
@@ -63,7 +61,6 @@
 }
 .rating_box .numberOfRatings:hover{
   opacity: 1;
-  // background-color: black;
 }
 
 .tooltip{
@@ -126,14 +123,12 @@
   position: relative;
   width: 25rem;
   border-radius: 2rem;
-//  border: 5px solid var(--color-info-cadre);
 }
 
 .trailer {
   position: relative;
   height: 65%;
   width: 60vw;
-  //border-top: 1px solid var(--color-info-separator);
   margin-top: 10%;
 }
 
@@ -172,92 +167,7 @@ ul li{
   width: 20rem;
 }
 
-.streaming{
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-}
 
-.streaming ul{
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-}
-
-.streaming ul li {
-  position: relative;
-  padding: 0 1rem;
-
-}
-
-.img__streaming{
-  width: 4rem;
-}
-
-.streaming ul li:hover {
-  padding: 0 2rem;
-  .img__streaming{
-    transform: scale(1.6);
-  }
-}
-
-
-.directors{
-  border-top: 1px solid var(--color-info-separator);
-  justify-content: center;
-  text-align: center;
-  position: flex;
-  width: 80%;
-  margin: 1% 10%;
-}
-
-
-.directors ul{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  overflow: hidden;
-  list-style-type: none ;
-  padding: 0;
-}
-
-.directors .img__directors{
-  width: 15rem;
-  height: 22rem;
-  margin: 10px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid var(--color-info-cadre);
-}
-
-.screenwriters{
-  border-top: 1px solid var(--color-info-separator);
-  margin: 1% 10%;
-  justify-content: center;
-  text-align: center;
-}
-
-.screenwriters ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  overflow: hidden;
-  list-style-type: none ;
-  padding: 0;
-}
-
-.screenwriters .img__screenwriters{
-  width: 15rem;
-  height: 22rem;
-  margin: 10px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid var(--color-info-cadre);
-}
 
 .plot{
   border-top: 1px solid var(--color-info-separator);
@@ -267,23 +177,18 @@ ul li{
   font-size: 20px;
 }
 
-.streaming{
+.zone{
   border-top: 1px solid var(--color-info-separator);
-  margin: 10%;
-}
-
-
-.actors{
-  border-top: 1px solid var(--color-info-separator);
-  margin: 1% 10%;
   justify-content: center;
   text-align: center;
+  position: flex;
+  width: 80%;
+  margin: 1% 10%;
 }
 
 
-.actors ul{
+.zone ul{
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -292,13 +197,44 @@ ul li{
   padding: 0;
 }
 
-.actors .img__actors{
+.zone img{
   width: 15rem;
   height: 22rem;
   margin: 10px;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid var(--color-info-cadre);
+}
+
+
+.streaming{
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  border-top: 1px solid var(--color-info-separator);
+  margin: 10%;
+}
+.streaming ul{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.streaming ul li {
+  padding: 0 1rem;
+}
+
+
+.img__streaming{
+  width: 6rem;
+}
+
+.streaming ul li:hover {
+  padding: 0 2rem;
+  .img__streaming{
+    transform: scale(1.6);
+  }
 }
 
 .actors .txt__actors{
@@ -310,14 +246,14 @@ ul li{
   margin: 0;
 }
 
-
+/*favorites*/
 .fav_list_buttons{
   display: flex;
   flex-direction: row;
   text-align: center;
   justify-content:center;
-
 }
+
 .fav_button{
   margin-right: 2rem;
 }

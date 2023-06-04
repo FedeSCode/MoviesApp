@@ -22,9 +22,7 @@
                 <my-list-button class="myList_button" id="{{movie.id}}"></my-list-button>
               </div>
             </h1>
-            <!--<div *ngIf="isAuth">
-              <default-button class="addFav" type="button" text="addToFav" (onClick)="addToFavorits()"></default-button>
-            </div>-->
+
             <div class="rating">
               <star-rating [valueOfStars]="movie.stars" icon="★">
               </star-rating>
@@ -35,7 +33,6 @@
 
             </div>
             <p>Sorti en France en {{movie.year}}</p>
-            <!--<p>Durée : {{movie.time}} min</p>-->
             <p>Durée : {{duration}}</p>
           </div>
 
@@ -56,7 +53,7 @@
       </div>
 
 
-      <div class="directors">
+      <div class="zone directors">
         <h2>Directors</h2>
 
         <ul>
@@ -67,7 +64,7 @@
         </ul>
       </div>
 
-      <div class="screenwriters">
+      <div class="zone screenwriters">
         <h2>Screenwriters</h2>
         <ul>
           <li *ngFor="let screenwriter of movie.screenwriters">
@@ -77,7 +74,7 @@
         </ul>
       </div>
 
-      <div class="actors">
+      <div class="zone actors">
         <h2>Actors</h2>
         <ul>
           <li *ngFor="let actors of movie.actors">
