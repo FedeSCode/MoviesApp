@@ -1,13 +1,14 @@
 *{
   color: var(--color-txt);
 }
-
+.container{
+  margin-top: 4vw;
+}
 .content{
   padding-bottom: 5%;
 }
 
 .main{
-  margin: 0;
   width: 100%;
   height: 100%;
   display: flex;
