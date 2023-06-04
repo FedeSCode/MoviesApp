@@ -65,7 +65,7 @@ export class MovieService {
 
   //@TODO
   updateMovie(movieId:string, movie:IMovieAdd){
-    console.log('Movie service: movieId ', movieId, 'update: ',movie);
+    //console.log('Movie service: movieId ', movieId, 'update: ',movie);
     return this.http.patch<Movie>(MOVIES_UPDATE_MOVIE_BY_ID_URL+movieId,movie);
   }
 
@@ -88,20 +88,3 @@ export class MovieService {
 
 }
 
-
-/*
-getAll(): Observable <Movie[]>{
-  return this;
-}
-
-
-getAllMoviesBySearchTerm(SearchTerm: string){
-  return this.getAll().filter(movie => movie.title.toLowerCase().includes(SearchTerm.toLowerCase()));
-}
-
-
-
-getMovieByID(movieId:number):Movie{
-  return this.getAll().find(movie=> movie.id == movieId) ?? new Movie();
-}
-*/
