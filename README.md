@@ -44,19 +44,19 @@ Final project for my last college year
 # Home<br>
 <img width=85% src="ReadmeImg/Homepng.png" alt="Home"><br>
 # Login<br>
-The passswords are encrypted before being send into the database
+The passwords are encrypted before being sent into the database
 <br>
 <img width=85% src="ReadmeImg/Login.png" alt="Login"><br>
 # Movies<br>
 Cards about all the movies in the database<br>
 <img width=85% src="ReadmeImg/Moviespng.png" alt="Movies"><br>
 # OneMovie<br>
-The information of a single movie, also we can see the admin's buttons delete & update <br>
+In here we can see the information of a single movie. <br>
+We can also see the admin's buttons delete & update <br>
 <img width=85% src="ReadmeImg/OneMovie.png" alt="OneMovie"><br>
 # AddMovie<br>
-The form to add a new movie, only can be done by an admin<br>
+Here we have the form to add a new movie, this can only be done by an admin<br>
 <img width=85% src="ReadmeImg/AddMovie-up.png" alt="AddMovie"><br>
-
 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
@@ -64,13 +64,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites <a name = "prerequisites"></a>
 
-What things you need to install:
-- Create mongoDb database
+Things you need to install:
 - install nodejs
 - install npm
 - install angular-cli
 
-upload MoviesApp project
+Create mongoDb database <br>
+upload MoviesApp project <br>
 
 
 ## 🚀 Deployment <a name = "deployment"></a>
@@ -89,17 +89,18 @@ cd ~<path>/MoviesApp/Frontend
 npm install
 
 ```
-after the installing of npm, you must run the following command on bouth
+after installing npm, you must run the following command on both
 terminals, in any order.
 
 ```
 npm start
 ```
-wait utill the loading is finished and if evry ting is ok you shoul see the deploy aplication runing...
 
-Backend shouuld be on port 5000<br>
+wait utill the loading is finished and if everythingis ok, you should see the deploy application running...
+
+Backend should be on port 5000<br>
 <img width=85%  src="ReadmeImg/BackNPMStart.PNG" alt="BackendStartByNpm"><br>
-Frontend shouuld be on port 4200<br>
+Frontend should be on port 4200<br>
 <img width=85% height=20%  src="ReadmeImg/FrontNPMStart.PNG" alt="FrontendStartByNpm"><br>
 
 ## ⛏️ Built Using <a name = "built_using"></a>
