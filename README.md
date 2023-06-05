@@ -39,7 +39,7 @@ A live demo is avaible <a href="https://moviesapp-ti0s.onrender.com/home" >here!
 Final project for my last college year
 <br>
 
-## 🧐 MovieApp Screenshots<a name = "project"></a>
+## 📸 MovieApp Screenshots<a name = "project"></a>
 
 # Home<br>
 <img width=85% src="ReadmeImg/Homepng.png" alt="Home"><br>
