@@ -96,7 +96,7 @@ terminals, in any order.
 npm start
 ```
 
-wait utill the loading is finished and if everythingis ok, you should see the deploy application running...
+wait until the loading is finished and if everythingis ok, you should see the deploy application running...
 
 Backend should be on port 5000<br>
 <img width=85%  src="ReadmeImg/BackNPMStart.PNG" alt="BackendStartByNpm"><br>
