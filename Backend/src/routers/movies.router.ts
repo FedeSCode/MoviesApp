@@ -49,9 +49,8 @@ router.get("/:movieId",asyncHandler(
 
 router.post('/addMovie', async (req, res) => {
   try {
-    const movieData = req.body; // Supposons que les données du film sont envoyées dans le corps de la requête
+    const movieData = req.body; 
 
-    // Créer une nouvelle instance du modèle MovieModel avec les données reçues
     const newMovie = new MovieModel({
       title: movieData.title,
       plot: movieData.plot,
@@ -135,13 +134,13 @@ router.patch("/update/:id", async (req, res) => {
     const movie = await MovieModel.findByIdAndUpdate(movieId, updatedMovie, { new: true });
 
     if (!movie) {
-      return res.status(404).json({ message: "Film introuvable" });
+      return res.status(404).json({ message: "Movie not found" });
     }
 
-    res.status(200).json({ message: "Film mis à jour avec succès", movie: movie });
+    res.status(200).json({ message: "Movie sucsefuly updated", movie: movie });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Une erreur est survenue lors de la mise à jour du film" });
+    res.status(500).json({ message: "Error while movie updating" });
   }
 
   return; 

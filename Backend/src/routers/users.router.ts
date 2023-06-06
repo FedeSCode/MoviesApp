@@ -83,12 +83,7 @@ router.post(
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {
-      //console.log("ici juste appres add dans edit");
       res.send(generateTokenResponse(user));
-      //console.log("ici");
-      // console.log('user.id ------>',user.id);
-      //__USER__ID__ = user.id;
-      //console.log('__USER__ID__ : ' ,__USER__ID__);
     } else {
       res.status(401).send("User not found");
     }
@@ -113,8 +108,8 @@ router.post(
       email: email.toLowerCase(),
       password: encyptedPassword,
       isAdmin: false,
-      favorite: [{idMovie:""}],
-      myList: [{idMovie:""}],
+      favorite: [],
+      myList: [],
     };
 
     const dbUser = await UserModel.create(newUser);

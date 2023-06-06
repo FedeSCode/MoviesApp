@@ -1,17 +1,18 @@
 import {Schema, model} from "mongoose";
 
 export interface User{
-    id:string;
-    email:string;
-    password:string;
-    name:string;
-    isAdmin:boolean;  
-    favorite: [{
-        idMovie: string;
-    }];    
-    myList: [{
-        idMovie: string;
-    }];    
+    id: string;
+    email: string;
+    password: string;
+    name: string;
+    isAdmin: boolean;
+    favorite: {
+      idMovie: string;
+    }[];
+    myList: {
+      idMovie: string;
+    }[];
+  
 }
 
 export const UserSchema = new Schema<User>({
@@ -19,13 +20,18 @@ export const UserSchema = new Schema<User>({
     password: {type: String, required: true},
     name: {type: String, required: true},
     isAdmin: {type: Boolean, default: false},
-    favorite: [{
-        idMovie: String,
-    }],
-    
-    myList: [{
-        idMovie: String,
-    }],
+    favorite: {
+        type: [{
+            idMovie: String,
+        }],
+        default: [],
+    },
+    myList: {
+        type: [{
+            idMovie: String,
+        }],
+        default: [],
+    },
     
 },{
     toJSON:{
