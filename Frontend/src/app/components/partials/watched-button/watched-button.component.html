@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="mylist remove button_txt tooltip-button" *ngIf="isFavorite">
+    <button (click)="removeFromMyWatchedListAnyTime(); removed(); removeToMoviesCounter()">{{ check }}</button>
+    <span class="tooltip-content">Not watched</span>
+  </div>
+
+  <div class="mylist add tooltip-button" *ngIf="!isFavorite">
+    <button class="button_txt" type="button" (click)="addMyWatchedListAnyTime(); added(); addToMoviesCounter()" >{{ plus }}</button>
+    <span class="tooltip-content">Watched</span>
+  </div>
+
+</div>

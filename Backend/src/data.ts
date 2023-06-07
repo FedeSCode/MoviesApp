@@ -94,34 +94,16 @@ export const sample_users: any[] = [
     email: "fede@test.fr",
     password: "$2a$10$0JtHVpvWO7B0PgSCfT/ABO.O.5ZbkWTsqPtXukhrC329awKS7oPFu",
     isAdmin: true,
-    favorite: [
-      { idMovie: "64734ce21e75f306febc9a58" },
-      { idMovie: "6459ee3f3710a80843b09bb6" },
-    ],
-    myList: [
-      {
-        idMovie: "64734ce21e75f306febc9a58",
-      },
-      { idMovie: "6459ee3f3710a80843b09bb6" },
-    ],
+    favorite: [ ],
+    myList: [],
   },
   {
     name: "Admin",
     email: "admin@test.fr",
     password: "$2a$10$0JtHVpvWO7B0PgSCfT/ABO.O.5ZbkWTsqPtXukhrC329awKS7oPFu",
     isAdmin: true,
-    favorite: [
-      {
-        idMovie: "64734ce21e75f306febc9a58",
-      },
-      { idMovie: "6459ee3f3710a80843b09bb6" },
-    ],
-    myList: [
-      {
-        idMovie: "64734ce21e75f306febc9a58",
-      },
-      { idMovie: "6459ee3f3710a80843b09bb6" },
-    ],
+    favorite: [],
+    myList: [],
   },
 ];
 

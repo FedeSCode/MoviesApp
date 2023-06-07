@@ -5,6 +5,8 @@ export class User{
   password!:string;
   token!:string;
   isAdmin!:boolean;
+  timeWatchingMovies!:number;
+  numMoviesWatched!:number;
   favorite!: {
     idMovie:string;
   }[];

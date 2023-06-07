@@ -15,12 +15,18 @@
   </div>
 
   <div class="moviesWatched">
+      <ul *ngFor="let movie of movies">
+        <li>
+          <one-movie  id="{{movie.id}}"
+          img="{{movie.poster}}"
+          [favorite]="movie.favorite"
+          [starsNumber]="movie.stars"
+          title="{{movie.title}}"
+          ></one-movie>
+        </li>
+      </ul>
+    </div>
 
-    <one-movie>
 
-    </one-movie>
-
-
-  </div>
 
 </div>

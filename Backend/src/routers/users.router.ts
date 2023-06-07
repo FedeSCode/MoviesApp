@@ -75,6 +75,17 @@ router.get("/getMyListMovies/:id", asyncHandler(
   })
 )
 
+router.get("/getMyWatchedListMovies/:id", asyncHandler( 
+  async(req,res)=>{
+  const { idUser } = req.body
+  const user = await UserModel.findById(req.params.id);
+  if(user){
+    const listFav = user.moviesWatched;
+    res.send(listFav);
+  }
+  })
+)
+
 /*Database*/
 
 router.post(
@@ -103,11 +114,14 @@ router.post(
     const encyptedPassword = await bcrypt.hash(password, 10);
 
     const newUser: User = {
-      id: "",
+      id: '',
       name,
       email: email.toLowerCase(),
       password: encyptedPassword,
       isAdmin: false,
+      timeWatchingMovies:0,
+      numMoviesWatched:0,
+      moviesWatched:[],
       favorite: [],
       myList: [],
     };
@@ -121,8 +135,9 @@ router.post(
 const generateTokenResponse = (user: User) => {
   const token = jwt.sign(
     {
-      email: user.email,
-      isAdmin: user.isAdmin,
+      id: user.id, 
+      email:user.email, 
+      isAdmin: user.isAdmin
     },
     "SomeRandomText",
     { expiresIn: "30d" }
@@ -133,6 +148,9 @@ const generateTokenResponse = (user: User) => {
     email: user.email,
     name: user.name,
     isAdmin: user.isAdmin,
+    timeWatchingMovies: user.timeWatchingMovies,
+    numMoviesWatched:user.numMoviesWatched,
+    moviesWatched: user.moviesWatched,
     favorite: user.favorite,
     myList: user.myList,
     token: token,
@@ -141,8 +159,6 @@ const generateTokenResponse = (user: User) => {
 
 router.post("/addFavorite", async (req, res, next) => {
   const { idMovie, idUser } = req.body;
-  //console.log("idUser-->", idUser);
-  //console.log("idMovie-->", idMovie);
 
   try {
     // Rechercher l'utilisateur par son ID
@@ -192,7 +208,40 @@ router.post("/addToMyList", async (req, res, next) => {
     await user.save();
     res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ message: "Erreur lors de l'ajout du favori" });
+    res.status(500).json({ message: "Erreur lors de l'ajout a ma liste" });
+  }
+});
+
+router.post("/addToMyWatchedList", async (req, res, next) => {
+  const { idMovie, idUser } = req.body;
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+    const existingFavorite = user.moviesWatched.find(
+      (watched) => watched.idMovie === idMovie
+    );
+
+   
+    if (existingFavorite) {
+      return res
+        .status(409)
+        .json({
+          message: "Le film est déjà dans les favoris de l'utilisateur",
+        });
+    }
+    user.moviesWatched.push({ idMovie });
+    let num = user.numMoviesWatched.valueOf();
+    //console.log ('numero des filmes vues', num);
+    num = num +1;
+   //console.log ('numero des filmes vues', num);
+    user.numMoviesWatched = num;
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de l'ajout de film regarde" });
   }
 });
 
@@ -219,7 +268,6 @@ router.post("/removeFavorite", async (req, res) => {
 
     user.favorite.splice(existingFavoriteIndex, 1);
     await user.save();
-
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: "Erreur lors de la suppression du favori" });
@@ -248,7 +296,6 @@ router.post("/removeMovieFromList", async (req, res) => {
 
     user.myList.splice(existingFavoriteIndex, 1);
     await user.save();
-
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: "Erreur lors de la suppression de ma liste" });
@@ -256,6 +303,93 @@ router.post("/removeMovieFromList", async (req, res) => {
 });
 
 
+router.post("/removeFromMyWatchedList", async (req, res) => {
+  const { idMovie, idUser } = req.body;
+  //console.log('idMovie:>>', idMovie, 'idUser:>>', idUser);
+  
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+
+    const existingFavoriteIndex = user.moviesWatched.findIndex(
+      (watched) => watched.idMovie === idMovie
+    );
+
+    if (existingFavoriteIndex === -1) {
+      return res
+        .status(404)
+        .json({ message: "Le film n'est pas dans Ma liste de l'utilisateur" });
+    }
+
+    user.moviesWatched.splice(existingFavoriteIndex, 1);
+    let num = user.numMoviesWatched.valueOf();
+    num = num - 1;
+    user.numMoviesWatched = num;
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Erreur lors de la suppression de ma liste" });
+  }
+});
+
+router.post('/addWatchMoviesTime', async (req, res) => {
+  const { idUser, timeWatchingMovies } = req.body;
+  console.log("idUser>>>>: ", idUser, "timeWatchingMovies>>>>: ", timeWatchingMovies);
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+
+    if (timeWatchingMovies <= 0) {
+      return res.status(400).json({ message: "Le temps de visionnage des films doit être un nombre positif." });
+    }
+
+    const newTimeWatchingMovies = user.timeWatchingMovies + timeWatchingMovies;
+
+    user.timeWatchingMovies = newTimeWatchingMovies;
+
+    await user.save();
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erreur lors de la mise à jour du temps de visionnage des films" });
+  }
+});
+
+
+router.post("/removeWatchMoviesTime", async (req, res) => {
+  const { idUser, timeWatchingMovies } = req.body;
+
+  console.log("idUser>>>>: ", idUser, "timeWatchingMovies>>>>: ", timeWatchingMovies);
+
+  try {
+    const user = await UserModel.findById(idUser);
+
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+
+    if (timeWatchingMovies <= 0) {
+      return res.status(400).json({ message: "Le temps de visionnage des films doit être un nombre positif." });
+    }
+
+    const newTimeWatchingMovies = user.timeWatchingMovies.valueOf() - timeWatchingMovies;
+
+    user.timeWatchingMovies = newTimeWatchingMovies;
+
+    await user.save();
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erreur lors de la mise à jour du temps de visionnage des films" });
+  }
+});
 
 
 

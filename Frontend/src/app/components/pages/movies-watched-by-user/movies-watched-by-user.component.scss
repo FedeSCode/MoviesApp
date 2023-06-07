@@ -1,6 +1,7 @@
 .container{
-  margin-top: 8vw;
+  margin-top: 8vh;
   color: aliceblue;
+  padding-bottom: 5%;
 }
 app-title{
   text-align: center;
@@ -16,3 +17,19 @@ app-title{
   flex-direction: row;
   justify-content: center;
 }
+
+
+.content{
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: var(--color-txt);
+}
+
+ul{
+  list-style: none;
+  display: inline-flex;
+
+}
+

@@ -41,6 +41,7 @@ import { MoviesWatchedComponent } from './components/partials/movies-watched/mov
 import { MoviesWatchedByUserComponent } from './components/pages/movies-watched-by-user/movies-watched-by-user.component';
 import { CommentsComponent } from './components/partials/comments/comments.component';
 import { CommentFormComponent } from './components/partials/comment-form/comment-form.component';
+import { WatchedButtonComponent } from './components/partials/watched-button/watched-button.component';
 
 
 
@@ -81,6 +82,7 @@ import { CommentFormComponent } from './components/partials/comment-form/comment
     MoviesWatchedByUserComponent,
     CommentsComponent,
     CommentFormComponent,
+    WatchedButtonComponent,
 
   ],
   imports: [

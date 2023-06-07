@@ -1,9 +1,14 @@
 <div class="container">
-    <div class="favorite remove" *ngIf="isFavorite">
-      <button  (click)="removeFromFavoritsAnyTime();removed()">❤</button>
+    <div class="favorite remove tooltip-button" *ngIf="isFavorite">
+      <button  (click)="removeFromFavoritsAnyTime();removed()" title="remove favorite">❤</button>
+      <span class="tooltip-content">Remove Favorite</span>
+
+
     </div>
-    <div class="favorite add" *ngIf="!isFavorite">
+    <div class="favorite add tooltip-button" *ngIf="!isFavorite">
       <!--<button type="button" [ngStyle]="{ color: 'white'}" (click)="addToFavoritsAnyTime()">❤</button>-->
-      <button  type="button" (click)="addToFavoritsAnyTime();added()">❤</button>
+      <button  type="button" (click)="addToFavoritsAnyTime();added()" title="add favorite">❤</button>
+      <span class="tooltip-content">Favorite</span>
+
     </div>
 </div>

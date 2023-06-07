@@ -23,6 +23,7 @@
               <div class="fav_list_buttons">
                 <fav-button class="fav_button" id="{{movie.id}}"></fav-button>
                 <my-list-button class="myList_button" id="{{movie.id}}"></my-list-button>
+                <watched-button id="{{movie.id}}"></watched-button>
                 <div class="rating">
                   <star-rating [valueOfStars]="movie.stars" icon="★">
                   </star-rating>

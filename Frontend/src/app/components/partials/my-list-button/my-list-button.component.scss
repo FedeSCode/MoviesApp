@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.mylist{
+.favorite{
   padding: auto;
 }
 
@@ -18,9 +18,15 @@ button{
   text-align: center;
   opacity: 0.8;
   cursor: pointer;
-  color: var(--color-txt);
 }
 
+// button:hover{
+//   background-color: var(--color-button-hover);
+//   color: red;
+//   transform: scale(1.1);
+//   transition: 40ms ease-in-out;
+//   opacity: 1;
+// }
 
 button:hover{
   background-color:var(--color-button-hover);
@@ -31,6 +37,7 @@ button:hover{
   opacity: 1;
 }
 
+
 button:active{
   transform: scale(0.9);
   background-color: var(--color-logo-second);
@@ -38,15 +45,69 @@ button:active{
   transition: 20ms ease-in;
 }
 
-.div{
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.fake_fav_button{
+  color: aliceblue;
+  cursor: not-allowed;
 }
+
+.remove button{
+  color: red;
+}
+.remove button:active{
+  color: black;
+}
+
+.remove button::selection{
+  color: white;
+}
+
+.add button{
+  color: var(--color-txt);
+}
+
+.add button::selection{
+  color: red;
+}
+
+.add button:active{
+  color: red;
+}
+
 div{
--webkit-user-select: none;
+  -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-user-select: none;
+    user-select: none;
 }
+
+.tooltip-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip-button .tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--color-logo-second);
+  color: #fff;
+  padding: 0px;
+  border-radius: 10px;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition: 400ms ease-in-out;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.tooltip-button:hover .tooltip-content {
+  padding: 5px;
+  opacity: 0.8;
+  top:3rem;
+  border-radius: 15px;
+  visibility: visible;
+}
+

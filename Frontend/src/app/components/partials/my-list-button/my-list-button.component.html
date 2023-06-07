@@ -1,8 +1,11 @@
 <div class="container">
-  <div class="mylist remove button_txt" *ngIf="isFavorite">
-    <button  (click)="removeFromMyListAnyTime();removed()">{{check}}</button>
+  <div class="mylist remove button_txt tooltip-button" *ngIf="isFavorite">
+    <button  (click)="removeFromMyListAnyTime();removed()" >{{check}}</button>
+    <span class="tooltip-content">Remove</span>
+
   </div>
-  <div class="mylist add" *ngIf="!isFavorite">
+  <div class="mylist add tooltip-button" *ngIf="!isFavorite">
     <button class="button_txt" type="button"  (click)="addMyListAnyTime();added()">{{plus}}</button>
+    <span class="tooltip-content">My list</span>
   </div>
 </div>

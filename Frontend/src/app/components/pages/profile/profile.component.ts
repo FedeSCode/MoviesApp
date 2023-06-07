@@ -14,13 +14,16 @@ export class ProfileComponent {
   filmsRegardes=0;
 
   constructor(private userService: UserService) {
-    userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
-    })
+
   }
 
   ngOnInit(): void {
-
+    this.userService.userObservable.subscribe((newUser) => {
+      this.user = newUser;
+      this.minutes = this.user.timeWatchingMovies;
+      this.filmsRegardes= this.user.numMoviesWatched;
+      this.minutes= this.user.timeWatchingMovies;
+    })
   }
 
   logout(){
@@ -33,7 +36,6 @@ export class ProfileComponent {
 
   get isAdmin(){
     return this.user.isAdmin;
-
   }
 
 }
