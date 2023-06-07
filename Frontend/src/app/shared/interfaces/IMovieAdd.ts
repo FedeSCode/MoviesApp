@@ -18,6 +18,7 @@ export interface IMovieAdd{
     url:string
   };
   plot: string;
+  background: string;
   time:number;
   poster: string;
   year: number;

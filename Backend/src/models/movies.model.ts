@@ -3,6 +3,7 @@ import { Schema, model } from "mongoose";
 export interface Movies {
   id: string;
   title: string;
+  background: string;
   plot: string;
   poster: string;
   year: number;
@@ -28,19 +29,30 @@ export interface Movies {
     name:string;
     url:string
   }];
-  comments:[{
+  comments:{
     userId:String;
     nameUser:String;
-    rating: number;
     comment:String;
-  }];
-  
+    rating: number;
+    spoil:boolean;
+    likes:number,
+    dislikes:number,
+    replay:{
+      replay_userId:String;
+      replay_nameUser:String;
+      replay_comment:String;
+      replay_spoil:boolean;
+      replay_likes:number,
+      replay_dislikes:number,
+      }[];
+  }[];
 
 }
 
 export const MovieSchema = new Schema<Movies>(
   {
     title: String,
+    background:String,
     plot: String,
     poster: String,
     year: Number,
@@ -80,9 +92,22 @@ export const MovieSchema = new Schema<Movies>(
       nameUser:String,
       rating: Number,
       comment:String,   
+      spoil:Boolean,
+      likes:Number,
+      dislikes:Number,
+      replay:{
+        type:[{
+          replay_userId:String,
+          replay_nameUser:String,
+          replay_comment:String,
+          replay_spoil:Boolean,
+          replay_likes:Number,
+          replay_dislikes:Number,
+        }],
+        default:[],
+      }
       },
    ],    
-
   },
   {
     toJSON: {

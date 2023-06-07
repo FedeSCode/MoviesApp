@@ -5,7 +5,7 @@
         <default-button type="button" text="Delete" (onClick)="deleteMovie()"></default-button>
         <default-button type="button" text="Update" (onClick)="updateMovie()"></default-button>
       </div>
-      <img class="bgImg" [src]="movie.poster">
+      <img class="bgImg" [src]="movie.background">
       <div class="mainContent">
         <div class="main_movie_info">
           <div class="poster">
@@ -119,7 +119,12 @@
       <div class="commentsBox">
         <ul *ngFor="let comment of movie.comments">
           <li style="list-style-type: none">
-            <app-comments nameUser="{{comment.nameUser}}" comment="{{comment.comment}}" [rating]="comment.rating">
+            <app-comments nameUser="{{comment.nameUser}}"
+            comment="{{comment.comment}}"
+            [rating]="comment.rating"
+            [likes]="comment.likes"
+            [dislikes]="comment.dislikes"
+            [spoil]="comment.spoil">
             </app-comments>
           </li>
         </ul>

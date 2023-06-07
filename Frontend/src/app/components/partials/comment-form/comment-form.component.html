@@ -3,7 +3,7 @@
     <div class="form-group formStars">
       <div class="starsContainer">
         <div class="star-widget">
-          <input formControlName="rating" type="radio" name="rating" id="rating-5" value="5">
+          <input formControlName="rating" required type="radio" name="rating" id="rating-5" value="5">
           <label for="rating-5">{{icon}}</label>
           <input formControlName="rating" type="radio" name="rating" id="rating-4" value="4">
           <label for="rating-4">{{icon}}</label>
@@ -19,7 +19,12 @@
 
     <div class="form-group ">
       <textarea type="text" formControlName="comment" id="comment" class="form-control"
-        placeholder="Ajoutez un commentaire..."></textarea>
+        placeholder="Ajoutez un commentaire..." required></textarea>
+    </div>
+    <div class="form-group ">
+      <label for="spoil">Spoil?</label>
+      <input type="radio" formControlName="spoil" id="spoil" name="spoil" class="form-control" value="true" required>Yes
+      <input type="radio" formControlName="spoil" id="spoil" name="spoil" class="form-control" value="false" required>No
     </div>
 
   </form>

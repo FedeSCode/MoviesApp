@@ -50,6 +50,7 @@ export class UpdateMovieComponent {
     this.movieForm = this.fb.group({
       movieTitle: "",
       moviePlot:"",
+      movieBackground:"",
       moviePoster:'',
       movieYear:'',
       movieIdThariler:'',
@@ -74,6 +75,7 @@ export class UpdateMovieComponent {
       this.movieForm.patchValue({
         movieTitle: movieToUpdate.title,
         moviePlot: movieToUpdate.plot,
+        movieBackground: movieToUpdate.background,
         moviePoster: movieToUpdate.poster,
         movieYear: movieToUpdate.year,
         movieIdThariler: movieToUpdate.trailer,
@@ -136,6 +138,7 @@ export class UpdateMovieComponent {
     const movie: IMovieAdd = {
       title: fv.movieTitle,
       plot: fv.moviePlot,
+      background: fv.movieBackground,
       poster: fv.moviePoster,
       year: fv.movieYear,
       trailer: fv.movieIdThariler,

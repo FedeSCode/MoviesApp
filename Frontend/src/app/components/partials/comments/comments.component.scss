@@ -57,3 +57,18 @@
 }
 
 
+.spoilButton{
+  height: 4vh;
+  width: 4vw;
+  border: none;
+  background-color: var(--color-logo-second);
+  border-radius: 10px;
+  opacity: 0.6;
+  transition: 0.8s ease;
+}
+.spoilButton:hover{
+  opacity: 1;
+}
+.spoilButton:active{
+  transform: scale(0.9);
+}

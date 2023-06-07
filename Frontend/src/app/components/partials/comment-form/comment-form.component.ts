@@ -51,7 +51,10 @@ export class CommentFormComponent {
       userId:this.user.id,
       nameUser:this.user.name,
       rating:'',
-      comment:''
+      comment:'',
+      spoil:'',
+      likes:0,
+      dislikes:0,
     });
   }
 
@@ -70,7 +73,10 @@ export class CommentFormComponent {
       userId: fv.userId,
       nameUser: fv.nameUser,
       rating: fv.rating,
-      comment: fv.comment
+      comment: fv.comment,
+      spoil:fv.spoil,
+      likes:fv.likes,
+      dislikes:fv.dislikes,
     };
     console.log(`here:`, this.commentForm.value);
     console.log(`New commnet:`,comment)

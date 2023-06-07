@@ -24,6 +24,17 @@ export class CommentsComponent {
   @Input()
   rating!:number;
 
+  @Input()
+  likes=0;
+  @Input()
+  dislikes=0;
+
+  @Input()
+  spoil=false;
+
+  hide= true;
+
+
   user!: User;
 
 
@@ -41,6 +52,15 @@ export class CommentsComponent {
 
   onStarClick(event: Event) {
     event.stopPropagation();
+  }
+
+  seeComment(){
+    this.spoil = false;
+    this.hide = false;
+  }
+
+  hideComment(){
+    this.spoil= true;
   }
 
   get isAuth(){

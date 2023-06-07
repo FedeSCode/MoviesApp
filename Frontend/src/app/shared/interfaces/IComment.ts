@@ -4,6 +4,8 @@ export interface IComment{
   nameUser:String;
   rating: number;
   comment:String;
-
+  spoil:boolean;
+  likes:number;
+  dislikes:number;
 }
 

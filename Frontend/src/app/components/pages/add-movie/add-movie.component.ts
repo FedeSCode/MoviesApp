@@ -35,6 +35,7 @@ export class AddMovieComponent {
     this.movieForm = this.fb.group({
       movieTitle:'',
       moviePlot:'',
+      movieBackground:'',
       moviePoster:'',
       movieYear:'',
       movieIdThariler:'',
@@ -65,6 +66,7 @@ export class AddMovieComponent {
     const movie: IMovieAdd = {
       title: fv.movieTitle,
       plot: fv.moviePlot,
+      background: fv.movieBackground,
       poster: fv.moviePoster,
       year: fv.movieYear,
       trailer: fv.movieIdThariler,
@@ -79,7 +81,7 @@ export class AddMovieComponent {
       };
 
       console.log(`New movie:`,movie)
-    this.movieService.addMovieToDb(movie).subscribe(_ => {
+      this.movieService.addMovieToDb(movie).subscribe(_ => {
       this.router.navigateByUrl(this.returnUrl);
     });
 

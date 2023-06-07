@@ -3,6 +3,7 @@ export class Movie{
   title!: string;
 
   plot!: string;
+  background!: string;
   poster!: string;
   year!: number;
   trailer!: string;
@@ -37,6 +38,9 @@ export class Movie{
     nameUser:string;
     rating:number;
     comment:string;
+    spoil:boolean;
+    likes:number;
+    dislikes:number;
   }[];
 
 }

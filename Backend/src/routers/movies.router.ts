@@ -53,6 +53,7 @@ router.post('/addMovie', async (req, res) => {
 
     const newMovie = new MovieModel({
       title: movieData.title,
+      background: movieData.background,
       plot: movieData.plot,
       poster: movieData.poster,
       year: movieData.year,
@@ -91,7 +92,11 @@ router.post('/addComment', async (req, res) => {
       userId: commentData.userId,
       nameUser: commentData.nameUser,
       rating: commentData.rating,
-      comment: commentData.comment
+      comment: commentData.comment,
+      spoil:commentData.spoil,
+      likes:commentData.likes,
+      dislikes:commentData.dislikes,
+      replay: [],
     });
     
     console.log('-----------------> ',movie.comments);
