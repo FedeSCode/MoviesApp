@@ -23,6 +23,8 @@ export class MoviePageComponent implements OnInit {
   minutes!:Number;
   duration!:String;
 
+  numberOfActors=4;
+  hideActorsButoon=false;
   numberOfRatings = 0;
   movieId!: string;
 
@@ -108,7 +110,17 @@ export class MoviePageComponent implements OnInit {
       });
     }
     //this.router.navigateByUrl('/movie');
+  }
 
+  seeAllActors(){
+    this.numberOfActors=this.movie.actors.length;
+    this.hideActorsButoon=true;
+    console.log("this.numberOfActors:",this.numberOfActors);
+  }
+  hideAllActors(){
+    this.numberOfActors=4;
+    this.hideActorsButoon=false;
+    console.log("this.numberOfActors:",this.numberOfActors);
   }
 
 }

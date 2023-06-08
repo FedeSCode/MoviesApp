@@ -79,12 +79,14 @@
       <div class="zone actors">
         <h2>Actors</h2>
         <ul>
-          <li *ngFor="let actors of movie.actors">
-            <img class="img__actors" [src]="actors.photo" [alt]="movie">
-            <h3 class="txt__actors">{{actors.name}}</h3>
-            <h4>rôle: {{actors.role}}</h4>
+          <li *ngFor="let actors of movie.actors; let i=index" >
+            <img class="img__actors" [src]="actors.photo" [alt]="movie" *ngIf="i<numberOfActors">
+            <h3 class="txt__actors" *ngIf="i<numberOfActors">{{actors.name}} </h3>
+            <h4 *ngIf="i<numberOfActors">rôle: {{actors.role}} </h4>
           </li>
         </ul>
+        <default-button *ngIf="!hideActorsButoon" type="button" (click)="seeAllActors()" text="All actors"></default-button>
+        <default-button *ngIf="hideActorsButoon" type="button" (click)="hideAllActors()" text="Hide actors"></default-button>
       </div>
 
 

@@ -1,15 +1,16 @@
 <div class="container" *ngIf="movies && movies.length > 0" class="carousel-container">
-  <div class="box fade" id="box"
-  *ngFor="let movie of movies;
-  let i=index"
-  [ngClass]="{'box-active':selectedIndex === i}"
-  >
-    <div class="left"><a [routerLink]="['/movie/', movie.id]"><img src="{{movie.poster}}" alt="{{movie.title}}"></a></div>
-    <div class="right">
+  <div class="box fade" id="box" *ngFor="let movie of movies;
+  let i=index" [ngClass]="{'box-active':selectedIndex === i}">
+
+
+    <div class="left" ><a [routerLink]="['/movie/', movie.id]"><img src="{{movie.poster}}" alt="{{movie.title}}"></a>
+    </div>
+    <div class="right" >
       <div class="right_up">
-        <iframe width="600" height="500" [src]="getTrailerId(movie.trailer)" title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen></iframe>
+        <iframe width="600" height="500" [src]="getTrailerId(movie.trailer)" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
 
       </div>
       <div class="right_bottom">
@@ -22,10 +23,8 @@
     </div>
   </div>
   <div *ngIf="indicators" class="carousel-dot-container">
-      <span *ngFor="let dot of movies; let i=index;" class="dot"
-        [ngClass]="{'active':selectedIndex === i}"
-        (click)="selectedMovie(i)"
-      >
-      </span>
+      <span *ngFor="let dot of movies; let i=index;"  class="dot" [ngClass]="{'active':selectedIndex === i}"
+      (click)="selectedMovie(i)">
+    </span>
   </div>
 </div>
