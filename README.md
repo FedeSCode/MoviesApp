@@ -1,12 +1,16 @@
+<P aling="right">
+SUAREZ Federico</P>
+
+
 <p align="center">
   <a href="https://moviesapp-ti0s.onrender.com/home" rel="noopener">
  <img width=200px height=200px src="Frontend/src/assets/images/android-chrome-512x512.png" alt="Project logo"></a>
 </p>
 
+
 <h3 align="center">MoviesApp</h3>
 
 <div align="center">
-
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![Status](https://img.shields.io/badge/Render-succes-green)](https://moviesapp-ti0s.onrender.com/home)
 [![wakatime](https://wakatime.com/badge/user/35c4c0da-49ff-4dec-8468-d69decd66130/project/9973100c-8386-4bb7-a4d5-14e72458352f.svg)](https://wakatime.com/@FedeCode/projects/jnnwbbhlzs?start=2023-05-31&end=2023-06-06)
@@ -24,7 +28,9 @@
 
 ## Live Demo
 
-A live demo is avaible <a href="https://moviesapp-ti0s.onrender.com/home" >here!!</a>
+You need an explorer (All Types!) and internet to have acces to the website.
+
+Here is a live demo : <a href="https://moviesapp-ti0s.onrender.com/home" >here!!</a>
 
 ## 📝 Table of Contents
 
@@ -58,6 +64,8 @@ We can also see the admin's buttons delete & update <br>
 # AddMovie<br>
 Here we have the form to add a new movie, this can only be done by an admin<br>
 <img width=85% src="ReadmeImg/AddMovie-up.png" alt="AddMovie"><br>
+
+
 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
