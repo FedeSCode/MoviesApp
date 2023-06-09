@@ -11,8 +11,11 @@ SUAREZ Federico</P>
 <h3 align="center">MoviesApp</h3>
 
 <div align="center">
+
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
+
 [![Status](https://img.shields.io/badge/Render-succes-green)](https://moviesapp-ti0s.onrender.com/home)
+
 [![wakatime](https://wakatime.com/badge/user/35c4c0da-49ff-4dec-8468-d69decd66130/project/9973100c-8386-4bb7-a4d5-14e72458352f.svg)](https://wakatime.com/@FedeCode/projects/jnnwbbhlzs?start=2023-05-31&end=2023-06-06)
 
 
